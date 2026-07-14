@@ -381,18 +381,24 @@ footer{border-top:1px solid var(--line); padding:52px 0 30px;}
   .contact-grid{grid-template-columns:1fr;}
 }
 @media (max-width:680px){
+  .wrap { padding: 0 18px; }
   .nav-links{
-    position:fixed; top:64px; left:0; right:0; background:rgba(10,15,30,0.96);
+    position:absolute; top:100%; left:0; right:0; background:rgba(10,15,30,0.97);
     backdrop-filter:blur(16px);
     -webkit-backdrop-filter:blur(16px);
-    flex-direction:column; align-items:flex-start; padding:20px 28px; gap:18px;
+    flex-direction:column; align-items:flex-start; padding:24px 20px; gap:18px;
     border-bottom:1px solid var(--line);
-    transform:translateY(-150%); transition:transform .25s ease; z-index:99;
+    transform:translateY(-10px); opacity:0; visibility:hidden;
+    transition:transform .25s ease, opacity .25s ease, visibility .25s; z-index:99;
   }
-  .nav-links.open{transform:translateY(0);}
+  .nav-links.open{transform:translateY(0); opacity:1; visibility:visible;}
   .menu-toggle{display:block;}
   .nav-cta{display:none;}
   .services-grid, .work-grid, .testi-grid, .price-grid{grid-template-columns:1fr;}
   .form-row{grid-template-columns:1fr;}
   .footer-top{flex-direction:column;}
+}
+@media (max-width:480px){
+  .stats-bar{grid-template-columns:1fr; row-gap:20px;}
+  .price-card{padding:28px 18px;}
 }
