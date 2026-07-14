@@ -132,18 +132,18 @@
 
 <header>
   <nav>
-    <a href="index.html" class="logo"><img src="DiCQNU.jpg" alt="ETECHPROVIDER Logo"></a>
+    <a href="index" class="logo"><img src="DiCQNU.jpg" alt="ETECHPROVIDER Logo"></a>
     <div class="nav-links" id="navLinks">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="about.html">About &amp; Process</a>
-      <a href="work.html">Work</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="payments.html">Payments</a>
-      <a href="contact.html">Contact</a>
+      <a href="index">Home</a>
+      <a href="services">Services</a>
+      <a href="about">About &amp; Process</a>
+      <a href="work">Work</a>
+      <a href="pricing">Pricing</a>
+      <a href="payments">Payments</a>
+      <a href="contact">Contact</a>
     </div>
     <div style="display:flex; align-items:center; gap:14px;">
-      <a href="contact.html" class="btn btn-primary nav-cta">Get a quote</a>
+      <a href="contact" class="btn btn-primary nav-cta">Get a quote</a>
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
     </div>
   </nav>
@@ -173,7 +173,7 @@
           <li>Core analytics tracker setup</li>
           <li>Monthly performance reporting</li>
         </ul>
-        <a href="contact.html?package=starter" class="btn btn-ghost">Get started</a>
+        <a href="contact?package=starter" class="btn btn-ghost">Get started</a>
       </div>
       <div class="price-card featured">
         <div class="tier">Growth</div>
@@ -186,7 +186,7 @@
           <li>Google &amp; Meta campaigns management</li>
           <li>Standard API integrations</li>
         </ul>
-        <a href="contact.html?package=growth" class="btn btn-primary">Get started</a>
+        <a href="contact?package=growth" class="btn btn-primary">Get started</a>
       </div>
       <div class="price-card">
         <div class="tier">Scale</div>
@@ -199,7 +199,7 @@
           <li>HIPAA/GDPR security compliance audits</li>
           <li>Priority 24/7 cloud support SLA</li>
         </ul>
-        <a href="contact.html?package=scale" class="btn btn-ghost">Talk to us</a>
+        <a href="contact?package=scale" class="btn btn-ghost">Talk to us</a>
       </div>
     </div>
 
@@ -322,23 +322,23 @@
   <div class="wrap">
     <div class="footer-top">
       <div style="max-width:280px;">
-        <a href="index.html" class="logo"><img src="DiCQNU.jpg" alt="ETECHPROVIDER Logo"></a>
+        <a href="index" class="logo"><img src="DiCQNU.jpg" alt="ETECHPROVIDER Logo"></a>
         <p style="color:var(--muted); font-size:0.88rem; margin-top:14px; line-height:1.6;">A UK-based digital partner delivering software, SEO and social under one roof.</p>
       </div>
       <div class="footer-cols">
         <div class="footer-col">
           <h4>Capabilities</h4>
-          <a href="services.html#dev">Software Dev</a>
-          <a href="services.html#seo">SEO Growth</a>
-          <a href="services.html#smm">Social Media</a>
-          <a href="services.html#ads">Paid Ads</a>
+          <a href="services#dev">Software Dev</a>
+          <a href="services#seo">SEO Growth</a>
+          <a href="services#smm">Social Media</a>
+          <a href="services#ads">Paid Ads</a>
         </div>
         <div class="footer-col">
           <h4>Company</h4>
-          <a href="about.html">About &amp; Process</a>
-          <a href="work.html">Selected Work</a>
-          <a href="pricing.html">Interactive Estimator</a>
-          <a href="payments.html">Pay Invoice</a>
+          <a href="about">About &amp; Process</a>
+          <a href="work">Selected Work</a>
+          <a href="pricing">Interactive Estimator</a>
+          <a href="payments">Pay Invoice</a>
         </div>
         <div class="footer-col">
           <h4>Connect</h4>
@@ -355,6 +355,7 @@
   </div>
 </footer>
 
+<script src="js/config.js"></script>
 <script src="js/main.js"></script>
 <script>
   // Dynamic Quote Estimator Formula Calculations
@@ -472,7 +473,7 @@
     const message = `Hello, I checked the estimate calculator and would like to request a quote. Project details: Scope: ${scopeName}, Pages: ${pages}${featuresStr}. Calculated Budget: ${budget}, estimated timeline: ${timeline}.`;
     
     // Redirect with pre-populated URL parameters
-    window.location.href = `contact.html?service=${encodeURIComponent(scopeName)}&message=${encodeURIComponent(message)}`;
+    window.location.href = `contact?service=${encodeURIComponent(scopeName)}&message=${encodeURIComponent(message)}`;
   });
 
   // Run calculation on load
