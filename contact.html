@@ -193,7 +193,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© <span id="year"></span> ETECHPROVIDER. All rights reserved.</span>
+      <span>© 2025 ETECHPROVIDER. All rights reserved.</span>
       <span>Registered in England &amp; Wales · London, UK</span>
     </div>
   </div>
@@ -250,20 +250,19 @@
       </svg>Sending...`;
 
     // Fetch submit to FormSubmit to send email securely in the background
-    const formData = new FormData();
-    formData.append('name', document.getElementById('fname').value);
-    formData.append('email', document.getElementById('femail').value);
-    formData.append('company', document.getElementById('fcompany').value);
-    formData.append('service', document.getElementById('fservice').value);
-    formData.append('message', document.getElementById('fmessage').value);
-    formData.append('_captcha', 'false');
-
     fetch('https://formsubmit.co/ajax/info@etechprovider.co.uk', {
       method: 'POST',
-      body: formData,
       headers: {
+        'Content-Type': 'application/json',
         'Accept': 'application/json'
-      }
+      },
+      body: JSON.stringify({
+        name: document.getElementById('fname').value,
+        email: document.getElementById('femail').value,
+        company: document.getElementById('fcompany').value,
+        service: document.getElementById('fservice').value,
+        message: document.getElementById('fmessage').value
+      })
     })
     .then(response => response.json())
     .then(data => {
