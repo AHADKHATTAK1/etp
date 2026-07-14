@@ -29,13 +29,21 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Active navigation link highlighting based on filename
-  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  let currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  currentPath = currentPath.replace(/\.html$/, '');
+  if (currentPath === '' || currentPath === 'index') {
+    currentPath = 'index';
+  }
+
   document.querySelectorAll('.nav-links a').forEach(link => {
-    const linkHref = link.getAttribute('href');
-    if (linkHref && (linkHref === currentPath || (currentPath === '' && linkHref === 'index.html'))) {
-      link.classList.add('active');
-    } else {
-      link.classList.remove('active');
+    let linkHref = link.getAttribute('href');
+    if (linkHref) {
+      linkHref = linkHref.split('#')[0].replace(/\.html$/, '');
+      if (linkHref === currentPath) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
     }
   });
 
