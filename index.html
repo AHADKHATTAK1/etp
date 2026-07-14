@@ -63,6 +63,54 @@
   }
   @keyframes flow { to { stroke-dashoffset: -140; } }
 
+  .sb-node {
+    fill: var(--ink-2);
+    stroke: var(--line);
+    stroke-width: 1.5;
+    cursor: pointer;
+    transition: fill 0.3s, stroke 0.3s, filter 0.3s;
+  }
+  .sb-node:hover, .sb-node.active {
+    fill: var(--ink-3);
+    stroke: var(--signal);
+    filter: drop-shadow(0 0 5px rgba(255,255,255,0.25));
+  }
+  .sb-label {
+    fill: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    pointer-events: none;
+    dominant-baseline: middle;
+    transition: fill 0.3s;
+  }
+  .sb-node:hover + .sb-label, .sb-node.active + .sb-label {
+    fill: var(--signal);
+  }
+  .sb-node-core {
+    fill: var(--ink-3);
+    stroke: var(--signal);
+    stroke-width: 2;
+    filter: drop-shadow(0 0 8px rgba(255,255,255,0.25));
+    cursor: pointer;
+    transition: fill 0.3s, stroke 0.3s, filter 0.3s;
+  }
+  .sb-node-core:hover, .sb-node-core.active {
+    fill: var(--signal);
+  }
+  .sb-label-core {
+    fill: var(--signal);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    pointer-events: none;
+    dominant-baseline: middle;
+    transition: fill 0.3s;
+  }
+  .sb-node-core:hover + .sb-label-core, .sb-node-core.active + .sb-label-core {
+    fill: var(--ink);
+  }
+
   .hero-panel {
     background: var(--ink-2);
     border: 1px solid var(--line);
@@ -460,15 +508,9 @@
       const key = node.getAttribute('data-id');
       updatePanel(key);
       
-      // Highlight node glow border or fill
-      document.querySelectorAll('.sb-node').forEach(n => n.style.stroke = '');
-      document.getElementById('node-core').style.fill = '';
-      
-      if (node.id === 'node-core') {
-        node.style.fill = '#5ffff0';
-      } else {
-        node.style.stroke = '#46E8C7';
-      }
+      // Highlight node by toggling active class
+      document.querySelectorAll('.sb-node, .sb-node-core').forEach(n => n.classList.remove('active'));
+      node.classList.add('active');
     });
   });
 </script>
