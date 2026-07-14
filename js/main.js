@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Clean URLs: strip .html extension from the address bar immediately
+  if (window.location.pathname.endsWith('.html')) {
+    const cleanPath = window.location.pathname.replace(/\.html$/, '');
+    window.history.replaceState({}, '', cleanPath + window.location.search + window.location.hash);
+  }
+
   // Set current year in footer
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
