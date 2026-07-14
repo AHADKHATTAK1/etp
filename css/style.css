@@ -1,13 +1,13 @@
 :root{
-  --ink:#0A0F1E;
-  --ink-2:#111A2E;
-  --ink-3:#1C2A45;
-  --line: rgba(140,151,184,0.18);
-  --paper:#F3F6FB;
-  --muted:#8C97B8;
-  --muted-2:#5C6889;
-  --signal:#46E8C7;
-  --signal-dim: rgba(70,232,199,0.14);
+  --ink:#000000;
+  --ink-2:#0A0A0A;
+  --ink-3:#121212;
+  --line: rgba(255,255,255,0.08);
+  --paper:#FFFFFF;
+  --muted:#A0A0A0;
+  --muted-2:#666666;
+  --signal:#FFFFFF;
+  --signal-dim: rgba(255,255,255,0.08);
   --amber:#FFB454;
   --radius: 14px;
   --max: 1180px;
@@ -82,7 +82,7 @@ section{position:relative;}
   position: absolute;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(70,232,199,0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -105,20 +105,17 @@ nav{
   padding:18px 28px;max-width:var(--max);margin:0 auto;
 }
 .logo{
-  display:flex;align-items:center;gap:10px;
-  font-family:'Space Grotesk',sans-serif;
-  font-weight:600;font-size:1.05rem;letter-spacing:-0.01em;
-  color:#FFFFFF;
+  display:flex;align-items:center;
 }
-.logo .brk{
-  font-family:'IBM Plex Mono',monospace;
-  color:#FFFFFF;
-  font-size:0.85rem;
-  border:1px solid #FFFFFF;
-  padding:2px 6px;border-radius:5px;
-  background:#000000;
-  box-shadow: 0 0 8px rgba(255,255,255,0.15);
-  font-weight:700;
+.logo img{
+  height: 38px; width: auto; display: block; border-radius: 4px;
+  transition: transform 0.2s ease;
+}
+.logo:hover img{
+  transform: scale(1.03);
+}
+footer .logo img{
+  height: 30px; border-radius: 3px;
 }
 .nav-links{display:flex;gap:24px;align-items:center;}
 .nav-links a{
@@ -143,7 +140,7 @@ nav{
   white-space:nowrap;
 }
 .btn-primary{
-  background:var(--signal);color:#06231D;
+  background:var(--signal);color:var(--ink);
 }
 .btn-primary:hover{
   box-shadow:0 0 0 4px var(--signal-dim); 
@@ -188,9 +185,9 @@ textarea{resize:vertical; min-height:110px;}
 
 .form-msg{
   font-size:0.9rem;
-  color:#46E8C7;
-  background:rgba(70,232,199,0.08);
-  border:1px solid rgba(70,232,199,0.25);
+  color:var(--signal);
+  background:var(--signal-dim);
+  border:1px solid var(--line);
   padding:14px 18px;
   border-radius:8px;
   margin-top:16px;
