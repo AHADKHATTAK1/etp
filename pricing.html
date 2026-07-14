@@ -123,6 +123,8 @@
     .price-grid { grid-template-columns: 1fr; }
     .estimator-wrap { grid-template-columns: 1fr; padding: 28px; }
     .checkbox-grid { grid-template-columns: 1fr; }
+    #book-session { grid-template-columns: 1fr; text-align: center; padding: 32px 24px; }
+    #book-session ul { justify-content: center; }
   }
 </style>
 </head>
@@ -152,7 +154,6 @@
 <div class="pricing-header">
   <div class="wrap">
     <div class="sec-head">
-      <span class="mono">// PRICING SOLUTIONS</span>
       <h1>Transparent tiers &amp; custom estimation</h1>
       <p>Select a predefined monthly digital service package or utilize our interactive quote calculator to compute individual project budget scopes.</p>
     </div>
@@ -203,9 +204,29 @@
       </div>
     </div>
 
+    <!-- Book a Session -->
+    <div id="book-session" style="margin: 60px 0; border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(135deg, var(--ink-2) 0%, var(--ink-3) 100%); padding: 48px; display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center;">
+      <div>
+        <p style="color:var(--signal); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.12em; font-weight:600; margin-bottom:10px;">One-to-One Consultancy</p>
+        <h2 style="font-size:1.8rem; font-weight:700; margin-bottom:14px; line-height:1.2;">Book a Strategy Session</h2>
+        <p style="color:var(--muted); font-size:0.97rem; line-height:1.65; max-width:560px;">Not sure where to start? Book a focused 60-minute consultancy call with our team. We will review your current digital setup, identify gaps, and deliver a clear, actionable roadmap tailored to your business goals.</p>
+        <ul style="margin: 20px 0 0; padding:0; list-style:none; display:flex; flex-wrap:wrap; gap:10px 24px;">
+          <li style="font-size:0.88rem; color:var(--muted); padding-left:18px; position:relative;"><span style="position:absolute;left:0;color:var(--signal);font-weight:bold;">✓</span> 60-minute live video or phone session</li>
+          <li style="font-size:0.88rem; color:var(--muted); padding-left:18px; position:relative;"><span style="position:absolute;left:0;color:var(--signal);font-weight:bold;">✓</span> Dedicated expert from our team</li>
+          <li style="font-size:0.88rem; color:var(--muted); padding-left:18px; position:relative;"><span style="position:absolute;left:0;color:var(--signal);font-weight:bold;">✓</span> Full digital audit included</li>
+          <li style="font-size:0.88rem; color:var(--muted); padding-left:18px; position:relative;"><span style="position:absolute;left:0;color:var(--signal);font-weight:bold;">✓</span> Written follow-up summary sent</li>
+        </ul>
+      </div>
+      <div style="text-align:center; flex-shrink:0;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:3rem; font-weight:700; line-height:1; color:var(--paper); margin-bottom:6px;">£30</div>
+        <div style="color:var(--muted); font-size:0.82rem; margin-bottom:24px;">one-time session fee</div>
+        <a href="contact.html?service=consultancy&message=I%20would%20like%20to%20book%20a%20consultancy%20session%20(£30)." class="btn btn-primary" style="display:block; text-align:center; padding:14px 28px; font-size:1rem;">Book Now — £30</a>
+        <p style="color:var(--muted); font-size:0.75rem; margin-top:10px;">Paid securely after confirmation</p>
+      </div>
+    </div>
+
     <!-- Interactive Estimator -->
     <div class="sec-head" style="margin-top:40px;">
-      <span class="mono">// ESTIMATOR CONSOLE</span>
       <h2>Interactive Project Quote Builder</h2>
       <p>Configure your technical deliverables live. Our calculations formula estimates budget scopes and delivery timeline requirements.</p>
     </div>
@@ -297,8 +318,6 @@
 
       <div class="estimator-output">
         <div>
-          <div class="estimator-title mono">// ESTIMATED SCOPE</div>
-          
           <div class="output-metric">
             <div class="val" id="estBudget">£1,450</div>
             <div class="lbl">Project Budget</div>
