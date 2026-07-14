@@ -238,6 +238,8 @@
 
   // Contact Form Submission (with loading spinner & success message)
   const form = document.getElementById('contactForm');
+  form.action = "https://formsubmit.co/" + ENV.CONTACT_EMAIL;
+  form.method = "POST";
   const formMsg = document.getElementById('formMsg');
   const submitBtn = form.querySelector('button[type="submit"]');
 
