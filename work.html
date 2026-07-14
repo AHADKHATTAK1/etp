@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selected Work — ETECHPROVIDER Portfolio</title>
+<meta name="description" content="Browse our digital case studies including asset dashboard interfaces, fashion brand campaigns, and secure healthcare booking platforms.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* Page specific styles */
+  .work-header {
+    padding: 80px 0 40px;
+    background: linear-gradient(180deg, var(--ink), var(--ink-2));
+    border-bottom: 1px solid var(--line);
+  }
+  .portfolio-section { padding: 60px 0 90px; }
+  
+  /* Filter Tabs */
+  .filter-row {
+    display: flex; gap: 12px; margin-bottom: 44px; flex-wrap: wrap;
+  }
+  .filter-btn {
+    background: var(--ink-2); border: 1px solid var(--line); color: var(--muted);
+    padding: 10px 18px; border-radius: 8px; font-weight: 500; font-size: 0.88rem;
+    cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+  .filter-btn:hover {
+    color: var(--paper); border-color: var(--muted-2);
+  }
+  .filter-btn.active {
+    background: var(--signal-dim); border-color: var(--signal); color: var(--signal);
+  }
+
+  .work-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+  .work-card {
+    border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--ink-2);
+    transition: border-color .3s, transform .3s, box-shadow .3s;
+    cursor: pointer;
+  }
+  .work-card:hover {
+    border-color: var(--signal); transform: translateY(-5px);
+    box-shadow: 0 12px 30px -10px rgba(70,232,199,0.15);
+  }
+  .work-thumb {
+    height: 190px; position: relative; overflow: hidden;
+    background: linear-gradient(135deg, var(--ink-3), var(--ink-2));
+  }
+  .work-thumb img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .work-card:hover .work-thumb img {
+    transform: scale(1.06);
+  }
+  .work-body { padding: 22px; }
+  .work-body .svc-tag {
+    display: inline-block; font-size: 0.72rem; color: var(--signal);
+    border: 1px solid var(--signal); padding: 3px 8px; border-radius: 5px;
+    background: var(--signal-dim); margin-right: 6px; margin-bottom: 12px;
+  }
+  .work-body h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 8px; }
+  .work-body p { color: var(--muted); font-size: 0.88rem; line-height: 1.55; }
+</style>
+</head>
+<body>
+
+<div id="scrollProgress"></div>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo"><span class="brk">ETP</span> ETECHPROVIDER</a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About &amp; Process</a>
+      <a href="work.html">Work</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="payments.html">Payments</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div style="display:flex; align-items:center; gap:14px;">
+      <a href="contact.html" class="btn btn-primary nav-cta">Get a quote</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </nav>
+</header>
+
+<div class="work-header">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="mono">// REALIZED PRODUCTS</span>
+      <h1>Selected client case studies</h1>
+      <p>Click on any project below to inspect the stack parameters, scope requirements, and campaign results.</p>
+    </div>
+  </div>
+</div>
+
+<section class="portfolio-section">
+  <div class="glow-bg" style="top: 35%; left: 75%;"></div>
+  <div class="wrap">
+    
+    <div class="filter-row">
+      <button class="filter-btn active" data-filter="all">All Cases</button>
+      <button class="filter-btn" data-filter="software">Software Dev</button>
+      <button class="filter-btn" data-filter="marketing">Growth Marketing</button>
+    </div>
+
+    <div class="work-grid">
+      
+      <!-- Card 1 -->
+      <div class="work-card" data-category="software" data-project="fintech">
+        <div class="work-thumb">
+          <img src="img/fintech-dashboard.png" alt="Fintech dashboard mockup" loading="lazy">
+        </div>
+        <div class="work-body">
+          <span class="svc-tag">[DEV]</span><span class="svc-tag">[UX]</span>
+          <h3>Fintech client dashboard</h3>
+          <p>Rebuilt a legacy reporting tool into a fast, real-time dashboard for a financial services client.</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="work-card" data-category="marketing" data-project="fashion">
+        <div class="work-thumb">
+          <img src="img/fashion-growth.png" alt="D2C fashion SMM mockup" loading="lazy">
+        </div>
+        <div class="work-body">
+          <span class="svc-tag">[SEO]</span><span class="svc-tag">[ADS]</span>
+          <h3>D2C fashion growth programme</h3>
+          <p>Combined SEO and paid social to grow organic traffic and lower acquisition cost for a fashion retailer.</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="work-card" data-category="software" data-project="healthcare">
+        <div class="work-thumb">
+          <img src="img/healthcare-booking.png" alt="Healthcare mobile booking app UI mockup" loading="lazy">
+        </div>
+        <div class="work-body">
+          <span class="svc-tag">[DEV]</span><span class="svc-tag">[CLD]</span>
+          <h3>Healthcare booking platform</h3>
+          <p>Designed and built a HIPAA-aware booking system with automated reminders and cloud hosting.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div class="modal-overlay" id="projectModal">
+  <div class="modal-container">
+    <button class="modal-close" id="modalClose" aria-label="Close modal">✕</button>
+    <div class="modal-content">
+      <div class="modal-img-wrap">
+        <img id="modalImg" src="" alt="Project mockup image">
+      </div>
+      <div class="modal-body">
+        <span class="svc-tag" id="modalTags"></span>
+        <h3 id="modalTitle">Project Title</h3>
+        <p id="modalDesc">Project description goes here...</p>
+        <div class="modal-meta">
+          <div class="modal-meta-item">
+            <div class="label">Scope</div>
+            <div class="value" id="modalScope">Development</div>
+          </div>
+          <div class="modal-meta-item">
+            <div class="label">Technology</div>
+            <div class="value" id="modalTech">Stack</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div style="max-width:280px;">
+        <a href="index.html" class="logo"><span class="brk">ETP</span> ETECHPROVIDER</a>
+        <p style="color:var(--muted); font-size:0.88rem; margin-top:14px; line-height:1.6;">A UK-based digital partner delivering software, SEO and social under one roof.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Capabilities</h4>
+          <a href="services.html#dev">Software Dev</a>
+          <a href="services.html#seo">SEO Growth</a>
+          <a href="services.html#smm">Social Media</a>
+          <a href="services.html#ads">Paid Ads</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="about.html">About &amp; Process</a>
+          <a href="work.html">Selected Work</a>
+          <a href="pricing.html">Interactive Estimator</a>
+          <a href="payments.html">Pay Invoice</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://linkedin.com/company/etechprovider" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://instagram.com/etechprovider" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://twitter.com/etechprovider" target="_blank" rel="noopener">X / Twitter</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> ETECHPROVIDER. All rights reserved.</span>
+      <span>Registered in England &amp; Wales · London, UK</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  // Case Study Details Lightbox Data
+  const projectDetails = {
+    fintech: {
+      title: "Fintech Client Dashboard",
+      tags: "[DEV] [UX]",
+      description: "We redesigned and built a real-time portfolio management dashboard for a UK asset management firm. The legacy system suffered from data latency; our React and WebSockets rebuild reduced load times by 78% and enabled instant execution reporting.",
+      tech: "React, WebSockets, Node.js, PostgreSQL",
+      scope: "UI & Real-time Integration",
+      img: "img/fintech-dashboard.png"
+    },
+    fashion: {
+      title: "D2C Fashion Growth Programme",
+      tags: "[SEO] [ADS]",
+      description: "An end-to-end SEO and paid ads strategy for an upscale D2C apparel brand. By optimizing product schema and landing pages while deploying target funnel Meta ads, we increased organic traffic by 140% and improved ROAS to 4.2x.",
+      tech: "Meta Ads, Google Analytics, SEO Schema",
+      scope: "Growth Marketing & SEO",
+      img: "img/fashion-growth.png"
+    },
+    healthcare: {
+      title: "Healthcare Booking Platform",
+      tags: "[DEV] [CLD]",
+      description: "A secure, HIPAA-compliant online appointment booking system for a private clinic group. It integrates SMS reminders, video consultations, and secure database hosting on AWS with encrypted records management.",
+      tech: "Node.js, AWS EC2/RDS, SMS Gateways",
+      scope: "Web App & Secure Hosting",
+      img: "img/healthcare-booking.png"
+    }
+  };
+
+  const projectModal = document.getElementById('projectModal');
+  const modalImg = document.getElementById('modalImg');
+  const modalTags = document.getElementById('modalTags');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDesc = document.getElementById('modalDesc');
+  const modalScope = document.getElementById('modalScope');
+  const modalTech = document.getElementById('modalTech');
+  const modalClose = document.getElementById('modalClose');
+
+  document.querySelectorAll('.work-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const pid = card.getAttribute('data-project');
+      const details = projectDetails[pid];
+      if (details) {
+        modalImg.src = details.img;
+        modalImg.alt = details.title;
+        modalTags.textContent = details.tags;
+        modalTitle.textContent = details.title;
+        modalDesc.textContent = details.description;
+        modalScope.textContent = details.scope;
+        modalTech.textContent = details.tech;
+        
+        projectModal.style.display = 'flex';
+        setTimeout(() => projectModal.classList.add('open'), 10);
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  function closeModal() {
+    projectModal.classList.remove('open');
+    setTimeout(() => {
+      projectModal.style.display = 'none';
+      document.body.style.overflow = '';
+    }, 300);
+  }
+
+  modalClose.addEventListener('click', closeModal);
+  projectModal.addEventListener('click', (e) => {
+    if (e.target === projectModal) closeModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && projectModal.classList.contains('open')) closeModal();
+  });
+
+  // Filter Categories
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const workCards = document.querySelectorAll('.work-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-filter');
+      workCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        if (filter === 'all' || category === filter) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>

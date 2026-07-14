@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About &amp; Process — ETECHPROVIDER UK</title>
+<meta name="description" content="Learn about our digital agency values, core statistics, and our interactive 5-step collaborative process from discovery to ongoing campaign growth.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* Page specific styles */
+  .about-header {
+    padding: 80px 0 40px;
+    background: linear-gradient(180deg, var(--ink), var(--ink-2));
+    border-bottom: 1px solid var(--line);
+  }
+  .about-content { padding: 80px 0; }
+  .grid-2col {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+  }
+  
+  /* Stats Bar */
+  .stats-bar{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:24px;
+    background:var(--ink-2); border:1px solid var(--line); border-radius:var(--radius);
+    padding:36px 28px; margin-top: 60px;
+  }
+  .stat{text-align:center;}
+  .stat .n{font-family:'Space Grotesk',sans-serif; font-size:2.2rem; font-weight:700; color:var(--signal);}
+  .stat .l{color:var(--muted); font-size:0.82rem; margin-top:6px;}
+
+  /* Process Timeline */
+  .process-timeline {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-bottom: 40px;
+  }
+  .proc-step-btn {
+    border: none; background: var(--ink-2); border-top: 2px solid var(--ink-3);
+    padding: 20px 16px; border-radius: 0 0 8px 8px; cursor: pointer; text-align: left;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  }
+  .proc-step-btn:hover {
+    background: var(--ink-3);
+  }
+  .proc-step-btn.active {
+    background: var(--ink-3); border-color: var(--signal);
+    box-shadow: inset 0 4px 0 0 rgba(70,232,199,0.1);
+    transform: translateY(2px);
+  }
+  .proc-step-btn .num {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; color: var(--signal);
+    display: block; margin-bottom: 8px;
+  }
+  .proc-step-btn h4 { font-size: 1rem; color: var(--paper); }
+  
+  .process-panel {
+    background: var(--ink-2); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 44px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px;
+    align-items: center; min-height: 280px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .process-panel.switching {
+    opacity: 0; transform: translateY(10px);
+  }
+  .process-panel h3 { font-size: 1.5rem; margin-bottom: 12px; }
+  .process-panel p { color: var(--muted); font-size: 0.94rem; line-height: 1.6; margin: 0 0 20px; }
+  .process-panel ul { list-style: none; padding: 0; margin: 0; }
+  .process-panel li { font-size: 0.85rem; color: var(--muted-2); margin-bottom: 8px; padding-left: 18px; position: relative; }
+  .process-panel li::before { content: '✓'; position: absolute; left: 0; color: var(--signal); font-weight: bold; }
+  
+  .process-meta {
+    background: var(--ink-3); border-radius: 8px; padding: 24px; border: 1px solid var(--line);
+  }
+  .process-meta-item { margin-bottom: 16px; }
+  .process-meta-item:last-child { margin-bottom: 0; }
+  .process-meta-item .label {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; color: var(--muted-2);
+    text-transform: uppercase; margin-bottom: 4px;
+  }
+  .process-meta-item .value { font-size: 0.92rem; font-weight: 600; color: var(--paper); }
+
+  @media (max-width: 900px) {
+    .grid-2col { grid-template-columns: 1fr; gap: 32px; }
+    .process-timeline { grid-template-columns: 1fr; }
+    .proc-step-btn { border-radius: 8px; border-top: none; border-left: 2px solid var(--ink-3); padding: 14px 20px; }
+    .proc-step-btn.active { border-left-color: var(--signal); border-top-color: transparent; }
+    .process-panel { grid-template-columns: 1fr; padding: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="scrollProgress"></div>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo"><span class="brk">ETP</span> ETECHPROVIDER</a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About &amp; Process</a>
+      <a href="work.html">Work</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="payments.html">Payments</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div style="display:flex; align-items:center; gap:14px;">
+      <a href="contact.html" class="btn btn-primary nav-cta">Get a quote</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </nav>
+</header>
+
+<div class="about-header">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="mono">// WHO WE ARE</span>
+      <h1>Unified team, accountable results</h1>
+      <p>Most agencies operate in silos — separating developers from SEO specialists, and designers from copywriters. We built ETECHPROVIDER to close that gap.</p>
+    </div>
+  </div>
+</div>
+
+<section class="about-content">
+  <div class="glow-bg" style="top: 15%; left: 70%;"></div>
+  <div class="wrap">
+    <div class="grid-2col">
+      <div>
+        <h2 style="font-size:1.8rem; margin-bottom:20px;">Eliminating the agency handoff</h2>
+        <p style="color:var(--muted); line-height:1.6; font-size:0.96rem; margin-bottom:16px;">
+          When marketers don't understand code and developers don't understand conversion psychology, projects suffer. Tracking tags break, search engines fail to crawl Javascript elements, and design aesthetics slow down servers.
+        </p>
+        <p style="color:var(--muted); line-height:1.6; font-size:0.96rem;">
+          At ETECHPROVIDER, we combine engineering rigor with search and campaign strategy. Because we design, build, and optimize in-house under single-team leadership, nothing falls between the cracks.
+        </p>
+      </div>
+      <div style="background:var(--ink-2); border:1px solid var(--line); border-radius:var(--radius); padding:40px;">
+        <h3 style="font-size:1.25rem; margin-bottom:24px; color:var(--signal);">Our Operating Values</h3>
+        <div style="margin-bottom:20px;">
+          <h4 style="font-size:0.95rem; color:var(--paper); margin-bottom:6px;">01. Strict Code Accountability</h4>
+          <p style="color:var(--muted-2); font-size:0.85rem; margin:0; line-height:1.5;">Every script and layout is validated for fast, standard compliance.</p>
+        </div>
+        <div style="margin-bottom:20px;">
+          <h4 style="font-size:0.95rem; color:var(--paper); margin-bottom:6px;">02. Transparent SEO Targets</h4>
+          <p style="color:var(--muted-2); font-size:0.85rem; margin:0; line-height:1.5;">We focus on actual transaction keyword rankings, not vanity counts.</p>
+        </div>
+        <div>
+          <h4 style="font-size:0.95rem; color:var(--paper); margin-bottom:6px;">03. Secure Client Ownership</h4>
+          <p style="color:var(--muted-2); font-size:0.85rem; margin:0; line-height:1.5;">All code bases and cloud settings remain under client domain properties.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Office Workspace Banner Visual -->
+    <div style="margin-top: 60px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); height: 350px;">
+      <img src="img/agency-office.png" alt="ETECHPROVIDER London Office Workspace" style="width:100%; height:100%; object-fit:cover;">
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+      <div class="stat"><div class="n">6+</div><div class="l">Years in operation</div></div>
+      <div class="stat"><div class="n">120+</div><div class="l">Projects delivered</div></div>
+      <div class="stat"><div class="n">30+</div><div class="l">Countries served</div></div>
+      <div class="stat"><div class="n">24/7</div><div class="l">Support coverage</div></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section-pad" style="background:var(--ink-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="mono">// INTERACTIVE WORKFLOW</span>
+      <h2>Our 5-step collaborative process</h2>
+      <p>Click on any stage below to inspect the actual deliverables, tasks, and estimated timelines.</p>
+    </div>
+
+    <div class="process-timeline" id="timelineControls">
+      <button class="proc-step-btn active" data-step="01">
+        <span class="num">01</span>
+        <h4>Discover</h4>
+      </button>
+      <button class="proc-step-btn" data-step="02">
+        <span class="num">02</span>
+        <h4>Design</h4>
+      </button>
+      <button class="proc-step-btn" data-step="03">
+        <span class="num">03</span>
+        <h4>Build</h4>
+      </button>
+      <button class="proc-step-btn" data-step="04">
+        <span class="num">04</span>
+        <h4>Launch</h4>
+      </button>
+      <button class="proc-step-btn" data-step="05">
+        <span class="num">05</span>
+        <h4>Grow</h4>
+      </button>
+    </div>
+
+    <div class="process-panel" id="processPanel">
+      <div>
+        <h3 id="procTitle">Stage 01: Discover &amp; Scope</h3>
+        <p id="procDesc">We audit your existing web properties, interview stakeholders, compile marketing competitors, and design the software architecture brief before writing code.</p>
+        <ul id="procDeliverables">
+          <li>Detailed project scope and wireframe brief</li>
+          <li>Comprehensive keyword research and competitor analysis</li>
+          <li>Cloud architecture plan &amp; database design</li>
+        </ul>
+      </div>
+      <div class="process-meta">
+        <div class="process-meta-item">
+          <div class="label">Scope Timeline</div>
+          <div class="value" id="procTimeline">1 - 2 Weeks</div>
+        </div>
+        <div class="process-meta-item">
+          <div class="label">Collaborators</div>
+          <div class="value" id="procCollaborators">Business Analyst, Lead Developer</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div style="max-width:280px;">
+        <a href="index.html" class="logo"><span class="brk">ETP</span> ETECHPROVIDER</a>
+        <p style="color:var(--muted); font-size:0.88rem; margin-top:14px; line-height:1.6;">A UK-based digital partner delivering software, SEO and social under one roof.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Capabilities</h4>
+          <a href="services.html#dev">Software Dev</a>
+          <a href="services.html#seo">SEO Growth</a>
+          <a href="services.html#smm">Social Media</a>
+          <a href="services.html#ads">Paid Ads</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="about.html">About &amp; Process</a>
+          <a href="work.html">Selected Work</a>
+          <a href="pricing.html">Interactive Estimator</a>
+          <a href="payments.html">Pay Invoice</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://linkedin.com/company/etechprovider" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://instagram.com/etechprovider" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://twitter.com/etechprovider" target="_blank" rel="noopener">X / Twitter</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> ETECHPROVIDER. All rights reserved.</span>
+      <span>Registered in England &amp; Wales · London, UK</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  // Process Timeline Data
+  const processData = {
+    "01": {
+      title: "Stage 01: Discover & Scope",
+      desc: "We audit your existing web properties, interview stakeholders, compile marketing competitors, and design the software architecture brief before writing code.",
+      deliverables: [
+        "Detailed project scope and wireframe brief",
+        "Comprehensive keyword research and competitor analysis",
+        "Cloud architecture plan & database design"
+      ],
+      timeline: "1 - 2 Weeks",
+      collaborators: "Business Analyst, Project Manager, Lead Engineer"
+    },
+    "02": {
+      title: "Stage 02: Interface & Systems Design",
+      desc: "We transform the scope into user interface wireframes, build high-fidelity designs, create custom typography structures, and align brand identities.",
+      deliverables: [
+        "Interactive prototypes in Figma",
+        "Modular UI design system components",
+        "Social campaign asset templates"
+      ],
+      timeline: "2 - 3 Weeks",
+      collaborators: "UI/UX Designer, Creative Director"
+    },
+    "03": {
+      title: "Stage 03: Full-Stack Development",
+      desc: "Our developers code databases and layout grids while our content writers build landing page campaigns in parallel to accelerate launch timelines.",
+      deliverables: [
+        "Staging URL for visual reviews",
+        "Database scripts and custom API pipelines",
+        "Google & Meta ad campaign accounts structure"
+      ],
+      timeline: "4 - 8 Weeks",
+      collaborators: "Front-end dev, Backend engineer, Content Writer"
+    },
+    "04": {
+      title: "Stage 04: Quality Assurance & Launch",
+      desc: "We test code responses, secure database ports, inspect payment gateway transactions, verify analytics event pixels, and push production assets live.",
+      deliverables: [
+        "Optimized code deployment to production server",
+        "Verified secure HTTPS & DNS settings",
+        "Live tracking analytics tags dashboard"
+      ],
+      timeline: "1 Week",
+      collaborators: "QA Engineer, DevOps Specialist"
+    },
+    "05": {
+      title: "Stage 05: Continuous Growth retainer",
+      desc: "Post-launch, we monitor SEO crawl errors, update software versions, refine Google Search bid rates, and write social campaign posts monthly.",
+      deliverables: [
+        "Monthly performance ROAS & traffic audit reviews",
+        "Proactive server security software updates",
+        "Ongoing conversion rate optimizations"
+      ],
+      timeline: "Ongoing Retainer",
+      collaborators: "SEO Strategist, Campaign Manager, Support Lead"
+    }
+  };
+
+  const panel = document.getElementById('processPanel');
+
+  function updateProcess(step) {
+    const data = processData[step];
+    if (!data) return;
+
+    panel.classList.add('switching');
+    
+    setTimeout(() => {
+      document.getElementById('procTitle').textContent = data.title;
+      document.getElementById('procDesc').textContent = data.desc;
+      document.getElementById('procTimeline').textContent = data.timeline;
+      document.getElementById('procCollaborators').textContent = data.collaborators;
+
+      let listHTML = '';
+      data.deliverables.forEach(item => {
+        listHTML += `<li>${item}</li>`;
+      });
+      document.getElementById('procDeliverables').innerHTML = listHTML;
+      
+      panel.classList.remove('switching');
+    }, 150);
+  }
+
+  document.querySelectorAll('.proc-step-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.proc-step-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      
+      const step = btn.getAttribute('data-step');
+      updateProcess(step);
+    });
+  });
+</script>
+</body>
+</html>

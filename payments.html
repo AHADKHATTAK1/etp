@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settle Invoice Securely — ETECHPROVIDER Payments</title>
+<meta name="description" content="Pay existing ETECHPROVIDER invoices online securely using our PCI-DSS compliant simulated checkout portal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* Page specific styles */
+  .payments-header {
+    padding: 80px 0 40px;
+    background: linear-gradient(180deg, var(--ink), var(--ink-2));
+    border-bottom: 1px solid var(--line);
+  }
+  .payments-section { padding: 80px 0; }
+  .payments-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 48px; }
+  
+  .contact-info .info-row{
+    display:flex; gap:14px; margin-bottom:22px; padding-bottom:22px; border-bottom:1px solid var(--line);
+  }
+  .info-row .k{color:var(--muted); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px;}
+  .info-row .v{font-size:0.98rem;}
+
+  @media (max-width: 900px) {
+    .payments-grid { grid-template-columns: 1fr; gap: 36px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="scrollProgress"></div>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo"><span class="brk">ETP</span> ETECHPROVIDER</a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About &amp; Process</a>
+      <a href="work.html">Work</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="payments.html">Payments</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div style="display:flex; align-items:center; gap:14px;">
+      <a href="contact.html" class="btn btn-primary nav-cta">Get a quote</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </nav>
+</header>
+
+<div class="payments-header">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="mono">// SECURE PORTAL</span>
+      <h1>Pay an invoice securely</h1>
+      <p>Enter your credit card details and invoice reference code to complete payment transfers.</p>
+    </div>
+  </div>
+</div>
+
+<section class="payments-section">
+  <div class="wrap">
+    <div class="payments-grid">
+      
+      <div class="contact-info">
+        <div class="info-row">
+          <div><div class="k mono">ACCEPTED CHANNELS</div><div class="v">Visa, Mastercard, American Express, and direct bank wire transfers</div></div>
+        </div>
+        <div class="info-row">
+          <div><div class="k mono">BASE CURRENCY</div><div class="v">GBP (£) — Alternative currencies available upon account manager request</div></div>
+        </div>
+        <div class="info-row">
+          <div><div class="k mono">GATEWAY COMPLIANCE</div><div class="v">Encrypted HTTPS connections, fully PCI-DSS compliant checkout token systems</div></div>
+        </div>
+        <div class="info-row" style="border-bottom:none;">
+          <div><div class="k mono">INQUIRIES &amp; DISPUTES</div><div class="v">billing@etechprovider.co.uk</div></div>
+        </div>
+      </div>
+
+      <form id="paymentForm">
+        <div class="form-row">
+          <div>
+            <label for="pinvoice">Invoice Reference</label>
+            <input id="pinvoice" type="text" required placeholder="ETP-2026-0142">
+          </div>
+          <div>
+            <label for="pamount">Amount (GBP)</label>
+            <input id="pamount" type="number" min="1" step="0.01" required placeholder="1999.00">
+          </div>
+        </div>
+        <div>
+          <label for="pname">Cardholder Name</label>
+          <input id="pname" type="text" required placeholder="Jane Smith">
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="pcard">Card Number</label>
+            <input id="pcard" type="text" inputmode="numeric" maxlength="19" required placeholder="1234 1234 1234 1234">
+          </div>
+          <div>
+            <label for="pexp">Expiry &amp; Security</label>
+            <div style="display:flex; gap:10px;">
+              <input id="pexp" type="text" maxlength="5" required placeholder="MM/YY" style="flex:1;">
+              <input id="pcvc" type="text" inputmode="numeric" maxlength="4" required placeholder="CVC" style="flex:1;">
+            </div>
+          </div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary" style="justify-self:start; margin-top: 10px;">🔒 Pay securely now →</button>
+        <div class="form-msg" id="paymentMsg">Payment received — a receipt has been sent to your email.</div>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div style="max-width:280px;">
+        <a href="index.html" class="logo"><span class="brk">ETP</span> ETECHPROVIDER</a>
+        <p style="color:var(--muted); font-size:0.88rem; margin-top:14px; line-height:1.6;">A UK-based digital partner delivering software, SEO and social under one roof.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Capabilities</h4>
+          <a href="services.html#dev">Software Dev</a>
+          <a href="services.html#seo">SEO Growth</a>
+          <a href="services.html#smm">Social Media</a>
+          <a href="services.html#ads">Paid Ads</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="about.html">About &amp; Process</a>
+          <a href="work.html">Selected Work</a>
+          <a href="pricing.html">Interactive Estimator</a>
+          <a href="payments.html">Pay Invoice</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://linkedin.com/company/etechprovider" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://instagram.com/etechprovider" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://twitter.com/etechprovider" target="_blank" rel="noopener">X / Twitter</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> ETECHPROVIDER. All rights reserved.</span>
+      <span>Registered in England &amp; Wales · London, UK</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  // Luhn algorithm check
+  function checkLuhn(cardNo) {
+    let s = 0;
+    let doubleDigit = false;
+    for (let i = cardNo.length - 1; i >= 0; i--) {
+      let digit = parseInt(cardNo.charAt(i));
+      if (doubleDigit) {
+        digit *= 2;
+        if (digit > 9) digit -= 9;
+      }
+      s += digit;
+      doubleDigit = !doubleDigit;
+    }
+    return (s % 10 === 0);
+  }
+
+  // Format Card numbers
+  const cardInput = document.getElementById('pcard');
+  cardInput.addEventListener('input', () => {
+    let v = cardInput.value.replace(/\D/g,'').slice(0,16);
+    cardInput.value = v.replace(/(.{4})/g,'$1 ').trim();
+  });
+
+  const expInput = document.getElementById('pexp');
+  expInput.addEventListener('input', () => {
+    let v = expInput.value.replace(/\D/g,'').slice(0,4);
+    if(v.length >= 3) v = v.slice(0,2) + '/' + v.slice(2);
+    expInput.value = v;
+  });
+
+  const payForm = document.getElementById('paymentForm');
+  const paymentMsg = document.getElementById('paymentMsg');
+  const payBtn = payForm.querySelector('button[type="submit"]');
+
+  payForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const cardNum = cardInput.value.replace(/\s+/g, '');
+    const expVal = expInput.value;
+    const cvcVal = document.getElementById('pcvc').value;
+    
+    cardInput.style.borderColor = '';
+    expInput.style.borderColor = '';
+    
+    if (cardNum.length < 16) {
+      showPaymentError("Please enter a valid 16-digit card number.", cardInput);
+      return;
+    }
+    if (!checkLuhn(cardNum)) {
+      showPaymentError("Invalid card number check. Please verify details.", cardInput);
+      return;
+    }
+    const expParts = expVal.split('/');
+    if (expParts.length !== 2 || expParts[0].length !== 2 || expParts[1].length !== 2) {
+      showPaymentError("Please enter card expiry as MM/YY.", expInput);
+      return;
+    }
+    const month = parseInt(expParts[0]);
+    if (month < 1 || month > 12) {
+      showPaymentError("Please enter a valid expiry month (01-12).", expInput);
+      return;
+    }
+
+    // Processing state simulation
+    const originalText = payBtn.innerHTML;
+    payBtn.disabled = true;
+    payBtn.innerHTML = `
+      <svg class="spinner" viewBox="0 0 50 50" style="width:18px;height:18px;animation:spin 1s linear infinite;stroke:currentColor;stroke-width:5;fill:none;stroke-linecap:round;margin-right:8px;display:inline-block;vertical-align:middle;">
+        <circle cx="25" cy="25" r="20"></circle>
+      </svg> Authorising securely...`;
+    
+    setTimeout(() => {
+      payBtn.disabled = false;
+      payBtn.innerHTML = originalText;
+      paymentMsg.style.display = 'flex';
+      paymentMsg.style.color = '#46E8C7';
+      paymentMsg.style.background = 'rgba(70, 232, 199, 0.08)';
+      paymentMsg.style.borderColor = 'rgba(70, 232, 199, 0.25)';
+      paymentMsg.innerHTML = `
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-right:8px;vertical-align:middle;display:inline-block;">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+        <span>Secure payment of £${parseFloat(document.getElementById('pamount').value).toFixed(2)} received successfully. Reference: ETP-TX-${Math.floor(100000 + Math.random() * 900000)}</span>
+      `;
+      payForm.reset();
+      
+      setTimeout(() => {
+        paymentMsg.style.opacity = '0';
+        setTimeout(() => {
+          paymentMsg.style.display = 'none';
+          paymentMsg.style.opacity = '1';
+        }, 400);
+      }, 8000);
+    }, 2000);
+  });
+
+  function showPaymentError(msg, element) {
+    element.style.borderColor = '#ffb454';
+    element.focus();
+    
+    paymentMsg.style.display = 'flex';
+    paymentMsg.style.color = '#ffb454';
+    paymentMsg.style.background = 'rgba(255, 180, 84, 0.08)';
+    paymentMsg.style.borderColor = 'rgba(255, 180, 84, 0.25)';
+    paymentMsg.innerHTML = `
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-right:8px;vertical-align:middle;display:inline-block;">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="8" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+      </svg>
+      <span>${msg}</span>
+    `;
+    
+    setTimeout(() => {
+      paymentMsg.style.opacity = '0';
+      setTimeout(() => {
+        paymentMsg.style.display = 'none';
+        paymentMsg.style.opacity = '1';
+        paymentMsg.style.color = '';
+        paymentMsg.style.background = '';
+        paymentMsg.style.borderColor = '';
+      }, 400);
+    }, 4500);
+  }
+</script>
+</body>
+</html>

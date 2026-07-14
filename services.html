@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — ETECHPROVIDER Digital Capabilities</title>
+<meta name="description" content="Explore custom web and app engineering, search marketing campaigns, SEO, paid social funnels, product UI/UX designs, and cloud infrastructure operations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* Page specific styles */
+  .services-header {
+    padding: 80px 0 40px;
+    background: linear-gradient(180deg, var(--ink), var(--ink-2));
+    border-bottom: 1px solid var(--line);
+  }
+  .services-catalog {
+    padding: 80px 0;
+  }
+  .svc-detail-card {
+    background: var(--ink-2);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 44px;
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr;
+    gap: 32px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    scroll-margin-top: 100px;
+  }
+  .svc-detail-card:hover {
+    border-color: var(--signal);
+    box-shadow: 0 16px 40px -20px rgba(70,232,199,0.12);
+  }
+  .svc-detail-card .icon-wrap svg {
+    width: 64px; height: 64px; stroke: var(--signal); fill: none; stroke-width: 1.5;
+    transition: transform 0.3s ease;
+  }
+  .svc-detail-card:hover .icon-wrap svg {
+    transform: scale(1.08) rotate(2deg);
+  }
+  .svc-detail-card h3 {
+    font-size: 1.45rem;
+    margin-bottom: 12px;
+    color: var(--paper);
+  }
+  .svc-detail-card p {
+    color: var(--muted);
+    font-size: 0.96rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .svc-detail-card ul {
+    margin: 0; padding: 0; list-style: none;
+    display: grid; gap: 10px;
+  }
+  .svc-detail-card li {
+    font-size: 0.88rem; color: var(--muted); padding-left: 20px; position: relative;
+  }
+  .svc-detail-card li::before {
+    content: ''; position: absolute; left: 0; top: 8px; width: 8px; height: 1.5px; background: var(--signal);
+  }
+  
+  @media (max-width: 900px) {
+    .svc-detail-card {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding: 30px;
+    }
+    .svc-detail-card .icon-wrap svg {
+      width: 48px; height: 48px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div id="scrollProgress"></div>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo"><span class="brk">ETP</span> ETECHPROVIDER</a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About &amp; Process</a>
+      <a href="work.html">Work</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="payments.html">Payments</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div style="display:flex; align-items:center; gap:14px;">
+      <a href="contact.html" class="btn btn-primary nav-cta">Get a quote</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </nav>
+</header>
+
+<div class="services-header">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="mono">// WHAT WE DELIVER</span>
+      <h1>Our capabilities catalog</h1>
+      <p>ETECHPROVIDER operates at the intersection of engineering and growth marketing. Here is exactly what our team develops, ranks, and supports.</p>
+    </div>
+  </div>
+</div>
+
+<section class="services-catalog">
+  <div class="glow-bg" style="top: 25%;"></div>
+  <div class="glow-bg" style="top: 75%; left: 30%; background: radial-gradient(circle, rgba(255,180,84,0.06) 0%, transparent 60%);"></div>
+  
+  <div class="wrap">
+    
+    <!-- DEV -->
+    <div class="svc-detail-card" id="dev">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+      </div>
+      <div>
+        <h3>Software &amp; Web Development</h3>
+        <p>We build highly performant web applications, custom software utilities, and secure database connections. Engineered for high performance, load speed, and easy code maintenance.</p>
+      </div>
+      <ul>
+        <li>Headless content management &amp; static builds</li>
+        <li>Custom e-commerce checkouts &amp; SaaS dashboards</li>
+        <li>Real-time WebSockets connections &amp; gateway integrations</li>
+        <li>Robust backend logic (Node.js, PostgreSQL, REST APIs)</li>
+      </ul>
+    </div>
+
+    <!-- SEO -->
+    <div class="svc-detail-card" id="seo">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </div>
+      <div>
+        <h3>Search Engine Optimisation</h3>
+        <p>Our optimization targets organic users actively searching for your solutions. We remove technical bottlenecks and establish structured search authority.</p>
+      </div>
+      <ul>
+        <li>In-depth technical SEO crawls &amp; indexation fixes</li>
+        <li>Revenue-intent keyword mappings &amp; content blueprints</li>
+        <li>On-page structured schema configurations (JSON-LD)</li>
+        <li>High-quality editorial backlink acquisitions</li>
+      </ul>
+    </div>
+
+    <!-- SMM -->
+    <div class="svc-detail-card" id="smm">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+      </div>
+      <div>
+        <h3>Social Media Marketing</h3>
+        <p>Social channels shouldn't operate in a vacuum. We coordinate calendars, creative copy, and tracking codes to translate likes into buyers.</p>
+      </div>
+      <ul>
+        <li>Unified campaign copy schedules &amp; creative assets</li>
+        <li>Dedicated audience engagement &amp; response loops</li>
+        <li>Influencer partner matches &amp; UGC coordination</li>
+        <li>Consistent voice across LinkedIn, Instagram, and X</li>
+      </ul>
+    </div>
+
+    <!-- ADS -->
+    <div class="svc-detail-card" id="ads">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+      </div>
+      <div>
+        <h3>PPC &amp; Paid Advertising</h3>
+        <p>We deploy budget on platforms only where return is verifiable. From initial user search campaigns to deep retargeting paid social funnels.</p>
+      </div>
+      <ul>
+        <li>ROI-optimized Google Search &amp; Display configurations</li>
+        <li>Meta and TikTok pixel tracker validations</li>
+        <li>Custom transactional landing page split-testing</li>
+        <li>Detailed performance dashboards showing ROAS</li>
+      </ul>
+    </div>
+
+    <!-- UX -->
+    <div class="svc-detail-card" id="ux">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon><line x1="12" y1="22" x2="12" y2="15.5"></line><polyline points="22 8.5 12 15.5 2 8.5"></polyline><polyline points="2 15.5 12 8.5 22 15.5"></polyline><line x1="12" y1="2" x2="12" y2="8.5"></line></svg>
+      </div>
+      <div>
+        <h3>UI/UX &amp; Product Design</h3>
+        <p>Software is only as good as it feels to use. We draft wireframes, test usability, and build design systems that make navigation seamless.</p>
+      </div>
+      <ul>
+        <li>Clickable user prototypes in Figma</li>
+        <li>Custom component design systems for developers</li>
+        <li>User navigation flow audits and conversion mapping</li>
+        <li>User testing panels and feedback processing</li>
+      </ul>
+    </div>
+
+    <!-- CLOUD -->
+    <div class="svc-detail-card" id="cloud">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+      </div>
+      <div>
+        <h3>Cloud &amp; DevOps</h3>
+        <p>Keep your platform online, secure, and fast. We automate deployment workflows and set up server monitoring tools to prevent outages.</p>
+      </div>
+      <ul>
+        <li>Docker container management &amp; AWS/GCP setups</li>
+        <li>Continuous Integration &amp; Deployment (CI/CD scripts)</li>
+        <li>24/7 server monitoring, alerts, and incident backups</li>
+        <li>Cloudflare protection, firewalls, and SSL compliance</li>
+      </ul>
+    </div>
+
+    <!-- MOBILE -->
+    <div class="svc-detail-card" id="mob">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+      </div>
+      <div>
+        <h3>Mobile App Development</h3>
+        <p>We build responsive, robust applications for iOS and Android devices, keeping codebase logic unified to save on long-term maintenance costs.</p>
+      </div>
+      <ul>
+        <li>Cross-platform hybrid builds (React Native &amp; Flutter)</li>
+        <li>Offline sync support &amp; secure phone data storage</li>
+        <li>Push notifications setups &amp; geolocation features</li>
+        <li>App Store &amp; Google Play submission handling</li>
+      </ul>
+    </div>
+
+    <!-- ERP -->
+    <div class="svc-detail-card" id="erp">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+      </div>
+      <div>
+        <h3>ERP &amp; CRM Solutions</h3>
+        <p>Centralize your company's operational dashboard. We configure and custom-link customer relationships and enterprise tracking structures.</p>
+      </div>
+      <ul>
+        <li>Salesforce, HubSpot, or custom CRM integrations</li>
+        <li>Enterprise billing, stock tracking, and workflow automation</li>
+        <li>Custom database syncing with legacy platforms</li>
+        <li>Internal admin panel tools for operational staff</li>
+      </ul>
+    </div>
+
+    <!-- SEC -->
+    <div class="svc-detail-card" id="sec">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+      </div>
+      <div>
+        <h3>Cybersecurity &amp; IT Consulting</h3>
+        <p>Ensure data integrity and regulatory compliance. We run audits, inspect firewalls, and consult on organizational IT workflows.</p>
+      </div>
+      <ul>
+        <li>GDPR compliance checks &amp; data privacy setups</li>
+        <li>Penetration testing &amp; API security stress crawls</li>
+        <li>Internal password policies &amp; Multi-Factor Auth (MFA)</li>
+        <li>Network architecture design and server hardening</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div style="max-width:280px;">
+        <a href="index.html" class="logo"><span class="brk">ETP</span> ETECHPROVIDER</a>
+        <p style="color:var(--muted); font-size:0.88rem; margin-top:14px; line-height:1.6;">A UK-based digital partner delivering software, SEO and social under one roof.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Capabilities</h4>
+          <a href="services.html#dev">Software Dev</a>
+          <a href="services.html#seo">SEO Growth</a>
+          <a href="services.html#smm">Social Media</a>
+          <a href="services.html#ads">Paid Ads</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="about.html">About &amp; Process</a>
+          <a href="work.html">Selected Work</a>
+          <a href="pricing.html">Interactive Estimator</a>
+          <a href="payments.html">Pay Invoice</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://linkedin.com/company/etechprovider" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://instagram.com/etechprovider" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://twitter.com/etechprovider" target="_blank" rel="noopener">X / Twitter</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> ETECHPROVIDER. All rights reserved.</span>
+      <span>Registered in England &amp; Wales · London, UK</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

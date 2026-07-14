@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing &amp; Quote Estimator — ETECHPROVIDER</title>
+<meta name="description" content="Calculate your custom web application or SEO campaign cost using our live quote builder, or browse our flexible agency pricing tiers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* Page specific styles */
+  .pricing-header {
+    padding: 80px 0 40px;
+    background: linear-gradient(180deg, var(--ink), var(--ink-2));
+    border-bottom: 1px solid var(--line);
+  }
+  .pricing-section { padding: 80px 0; }
+  
+  /* Pricing Grid */
+  .price-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom: 80px;}
+  .price-card{
+    border:1px solid var(--line); border-radius:var(--radius); padding:36px 30px; background:var(--ink-2);
+    display:flex; flex-direction:column;
+    transition:border-color .3s, transform .3s, box-shadow .3s;
+  }
+  .price-card:hover{
+    border-color:var(--signal); transform:translateY(-5px);
+    box-shadow:0 12px 30px -10px rgba(70,232,199,0.15);
+  }
+  .price-card.featured{border-color:var(--signal); background:linear-gradient(180deg, var(--signal-dim), var(--ink-2) 40%);}
+  .price-card.featured:hover{
+    box-shadow:0 12px 35px -8px rgba(70,232,199,0.25);
+  }
+  .price-card .tier{font-size:0.8rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:12px;}
+  .price-card .amount{font-family:'Space Grotesk',sans-serif; font-size:2.2rem; font-weight:700; margin-bottom:8px;}
+  .price-card .amount small{font-size:0.9rem; color:var(--muted); font-weight:400;}
+  .price-card .desc{color:var(--muted); font-size:0.88rem; margin-bottom:24px; line-height: 1.5;}
+  .price-card ul{list-style:none; padding:0; margin:0 0 32px; flex:1;}
+  .price-card li{
+    font-size:0.86rem; color:var(--muted-2); padding-left:22px; position:relative; margin-bottom:12px;
+  }
+  .price-card li::before{content:'✓'; position:absolute; left:0; color:var(--signal); font-weight:bold; font-size:0.85rem;}
+
+  /* Estimator console */
+  .estimator-wrap {
+    background: var(--ink-2); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 44px; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px;
+    position: relative; overflow: hidden;
+  }
+  .estimator-controls { display: grid; gap: 28px; }
+  .estimator-output {
+    background: var(--ink-3); border: 1px solid var(--line); border-radius: 12px;
+    padding: 36px; display: flex; flex-direction: column; justify-content: space-between;
+    text-align: center; position: relative; z-index: 2;
+  }
+  .estimator-title { font-size: 1.35rem; color: var(--paper); margin-bottom: 24px; }
+  
+  .output-metric { margin-bottom: 28px; }
+  .output-metric:last-of-type { margin-bottom: 34px; }
+  .output-metric .val {
+    font-family: 'Space Grotesk', sans-serif; font-size: 3rem; font-weight: 700; color: var(--signal);
+    line-height: 1; transition: color 0.3s;
+  }
+  .output-metric .lbl {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; color: var(--muted-2);
+    text-transform: uppercase; margin-top: 8px; letter-spacing: 0.08em;
+  }
+  
+  /* Form components override for sliders */
+  .slide-container { display: flex; align-items: center; gap: 16px; margin-top: 8px; }
+  input[type=range] {
+    -webkit-appearance: none; width: 100%; height: 6px; border-radius: 3px;
+    background: var(--ink-3); outline: none; border: none; padding: 0;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 50%;
+    background: var(--signal); cursor: pointer; transition: transform 0.1s;
+  }
+  input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.15); }
+  .slider-val-box {
+    background: var(--ink-3); border: 1px solid var(--line); border-radius: 6px;
+    padding: 4px 10px; font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; color: var(--signal);
+    min-width: 48px; text-align: center;
+  }
+
+  /* Checkbox wrappers */
+  .checkbox-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 8px; }
+  .check-card {
+    background: var(--ink-3); border: 1px solid var(--line); border-radius: 8px;
+    padding: 14px 16px; display: flex; align-items: center; gap: 12px; cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .check-card:hover { border-color: var(--muted-2); }
+  .check-card.checked { border-color: var(--signal); background: var(--signal-dim); }
+  .check-card input { display: none; }
+  .check-card .box {
+    width: 18px; height: 18px; border: 1.5px solid var(--line); border-radius: 4px;
+    display: flex; align-items: center; justify-content: center; transition: background 0.2s, border-color 0.2s;
+    background: var(--ink);
+  }
+  .check-card.checked .box { border-color: var(--signal); background: var(--signal); color: #06231D; font-weight: bold; font-size: 0.72rem; }
+  .check-card .lbl { font-size: 0.82rem; color: var(--muted); }
+  .check-card.checked .lbl { color: var(--paper); font-weight: 500; }
+
+  /* Radio timeline */
+  .radio-row { display: flex; gap: 12px; margin-top: 8px; flex-wrap: wrap; }
+  .radio-card {
+    background: var(--ink-3); border: 1px solid var(--line); border-radius: 8px;
+    padding: 12px 16px; flex: 1; min-width: 100px; text-align: center; cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .radio-card:hover { border-color: var(--muted-2); }
+  .radio-card.selected { border-color: var(--signal); background: var(--signal-dim); }
+  .radio-card input { display: none; }
+  .radio-card .lbl { font-size: 0.82rem; color: var(--muted); display: block; }
+  .radio-card.selected .lbl { color: var(--paper); font-weight: 500; }
+  .radio-card .fact { font-size: 0.68rem; font-family: 'IBM Plex Mono', monospace; color: var(--muted-2); margin-top: 4px; }
+  .radio-card.selected .fact { color: var(--signal); }
+
+  @media (max-width: 900px) {
+    .price-grid { grid-template-columns: 1fr; }
+    .estimator-wrap { grid-template-columns: 1fr; padding: 28px; }
+    .checkbox-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div id="scrollProgress"></div>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo"><span class="brk">ETP</span> ETECHPROVIDER</a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About &amp; Process</a>
+      <a href="work.html">Work</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="payments.html">Payments</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div style="display:flex; align-items:center; gap:14px;">
+      <a href="contact.html" class="btn btn-primary nav-cta">Get a quote</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </nav>
+</header>
+
+<div class="pricing-header">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="mono">// PRICING SOLUTIONS</span>
+      <h1>Transparent tiers &amp; custom estimation</h1>
+      <p>Select a predefined monthly digital service package or utilize our interactive quote calculator to compute individual project budget scopes.</p>
+    </div>
+  </div>
+</div>
+
+<section class="pricing-section">
+  <div class="wrap">
+    
+    <div class="price-grid">
+      <div class="price-card">
+        <div class="tier">Starter</div>
+        <div class="amount">£799 <small>/ month</small></div>
+        <div class="desc">For small businesses needing a solid web presence and local search optimization.</div>
+        <ul>
+          <li>Responsive website build or refresh</li>
+          <li>Google Local Business SEO configuration</li>
+          <li>Core analytics tracker setup</li>
+          <li>Monthly performance reporting</li>
+        </ul>
+        <a href="contact.html?package=starter" class="btn btn-ghost">Get started</a>
+      </div>
+      <div class="price-card featured">
+        <div class="tier">Growth</div>
+        <div class="amount">£1,999 <small>/ month</small></div>
+        <div class="desc">For growing brands seeking to scale custom software, search rankings, and social funnels.</div>
+        <ul>
+          <li>Everything included in Starter</li>
+          <li>Ongoing search engine content optimizations</li>
+          <li>Dedicated social channels content creation</li>
+          <li>Google &amp; Meta campaigns management</li>
+          <li>Standard API integrations</li>
+        </ul>
+        <a href="contact.html?package=growth" class="btn btn-primary">Get started</a>
+      </div>
+      <div class="price-card">
+        <div class="tier">Scale</div>
+        <div class="amount">Custom <small>pricing</small></div>
+        <div class="desc">For established teams requiring dedicated developers, custom databases, and 24/7 SLAs.</div>
+        <ul>
+          <li>Everything included in Growth</li>
+          <li>Dedicated developer and designer team</li>
+          <li>Custom multi-platform mobile application</li>
+          <li>HIPAA/GDPR security compliance audits</li>
+          <li>Priority 24/7 cloud support SLA</li>
+        </ul>
+        <a href="contact.html?package=scale" class="btn btn-ghost">Talk to us</a>
+      </div>
+    </div>
+
+    <!-- Interactive Estimator -->
+    <div class="sec-head" style="margin-top:40px;">
+      <span class="mono">// ESTIMATOR CONSOLE</span>
+      <h2>Interactive Project Quote Builder</h2>
+      <p>Configure your technical deliverables live. Our calculations formula estimates budget scopes and delivery timeline requirements.</p>
+    </div>
+
+    <div class="estimator-wrap">
+      <div class="glow-bg" style="top:50%; left:50%; opacity:0.12;"></div>
+      
+      <div class="estimator-controls">
+        
+        <!-- Dropdown Scope -->
+        <div>
+          <label for="selectScope">Project Scope Type</label>
+          <select id="selectScope">
+            <option value="webapp">Custom Web Application Rebuild</option>
+            <option value="ecommerce">E-Commerce Transaction Platform</option>
+            <option value="seo">High-Intent Technical SEO Campaign</option>
+            <option value="fullsuite">Full Suite (Dev + SEO + Campaigns)</option>
+          </select>
+        </div>
+
+        <!-- Slider pages -->
+        <div>
+          <label>Number of Screens / Pages</label>
+          <div class="slide-container">
+            <input type="range" id="sliderPages" min="1" max="50" value="8">
+            <div class="slider-val-box" id="pagesVal">8</div>
+          </div>
+        </div>
+
+        <!-- Checkbox features -->
+        <div>
+          <label>Add-on Technical Specifications</label>
+          <div class="checkbox-grid">
+            
+            <div class="check-card" id="cardDB">
+              <input type="checkbox" id="featDB">
+              <div class="box"></div>
+              <div class="lbl">Custom Database &amp; CMS</div>
+            </div>
+
+            <div class="check-card" id="cardPay">
+              <input type="checkbox" id="featPay">
+              <div class="box"></div>
+              <div class="lbl">Secure Checkout (Stripe)</div>
+            </div>
+
+            <div class="check-card" id="cardAuth">
+              <input type="checkbox" id="featAuth">
+              <div class="box"></div>
+              <div class="lbl">User Accounts / Auth</div>
+            </div>
+
+            <div class="check-card" id="cardSupport">
+              <input type="checkbox" id="featSupport">
+              <div class="box"></div>
+              <div class="lbl">24/7 Cloud Support SLA</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Radio timeline -->
+        <div>
+          <label>Timeline Urgency Requirements</label>
+          <div class="radio-row">
+            
+            <div class="radio-card selected" data-value="1.0">
+              <input type="radio" name="timelineOpt" value="1.0" checked>
+              <span class="lbl">Standard</span>
+              <span class="fact">4-8 Weeks (x1.0)</span>
+            </div>
+
+            <div class="radio-card" data-value="1.3">
+              <input type="radio" name="timelineOpt" value="1.3">
+              <span class="lbl">Accelerated</span>
+              <span class="fact">2-4 Weeks (+30%)</span>
+            </div>
+
+            <div class="radio-card" data-value="1.6">
+              <input type="radio" name="timelineOpt" value="1.6">
+              <span class="lbl">Immediate</span>
+              <span class="fact">Under 2 Weeks (+60%)</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="estimator-output">
+        <div>
+          <div class="estimator-title mono">// ESTIMATED SCOPE</div>
+          
+          <div class="output-metric">
+            <div class="val" id="estBudget">£1,450</div>
+            <div class="lbl">Project Budget</div>
+          </div>
+
+          <div class="output-metric">
+            <div class="val" id="estTimeline">4 Weeks</div>
+            <div class="lbl">Estimated Delivery</div>
+          </div>
+        </div>
+
+        <button id="btnEstimatorRequest" class="btn btn-primary" style="width:100%; justify-content:center;">Request Quote with this Scope →</button>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div style="max-width:280px;">
+        <a href="index.html" class="logo"><span class="brk">ETP</span> ETECHPROVIDER</a>
+        <p style="color:var(--muted); font-size:0.88rem; margin-top:14px; line-height:1.6;">A UK-based digital partner delivering software, SEO and social under one roof.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Capabilities</h4>
+          <a href="services.html#dev">Software Dev</a>
+          <a href="services.html#seo">SEO Growth</a>
+          <a href="services.html#smm">Social Media</a>
+          <a href="services.html#ads">Paid Ads</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="about.html">About &amp; Process</a>
+          <a href="work.html">Selected Work</a>
+          <a href="pricing.html">Interactive Estimator</a>
+          <a href="payments.html">Pay Invoice</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://linkedin.com/company/etechprovider" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://instagram.com/etechprovider" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://twitter.com/etechprovider" target="_blank" rel="noopener">X / Twitter</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> ETECHPROVIDER. All rights reserved.</span>
+      <span>Registered in England &amp; Wales · London, UK</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  // Dynamic Quote Estimator Formula Calculations
+  const selectScope = document.getElementById('selectScope');
+  const sliderPages = document.getElementById('sliderPages');
+  const pagesVal = document.getElementById('pagesVal');
+  
+  const featDB = document.getElementById('featDB');
+  const featPay = document.getElementById('featPay');
+  const featAuth = document.getElementById('featAuth');
+  const featSupport = document.getElementById('featSupport');
+
+  const estBudget = document.getElementById('estBudget');
+  const estTimeline = document.getElementById('estTimeline');
+  const btnEstimatorRequest = document.getElementById('btnEstimatorRequest');
+
+  function calculateQuote() {
+    const pages = parseInt(sliderPages.value);
+    pagesVal.textContent = pages;
+
+    // 1. Base cost + cost per page
+    let cost = 300 + (pages * 60);
+    
+    // 2. Base timelines
+    let days = 10 + pages;
+
+    // 3. Scope type modifications
+    const scope = selectScope.value;
+    if (scope === 'webapp') {
+      cost += 800;
+      days += 12;
+    } else if (scope === 'ecommerce') {
+      cost += 1200;
+      days += 18;
+    } else if (scope === 'seo') {
+      cost += 500;
+      days += 8;
+    } else if (scope === 'fullsuite') {
+      cost += 2200;
+      days += 25;
+    }
+
+    // 4. Feature checks add-ons
+    if (featDB.checked) {
+      cost += 600;
+      days += 6;
+    }
+    if (featPay.checked) {
+      cost += 400;
+      days += 3;
+    }
+    if (featAuth.checked) {
+      cost += 500;
+      days += 5;
+    }
+    if (featSupport.checked) {
+      cost += 300;
+      days += 2;
+    }
+
+    // 5. Urgency factor
+    const selectedRadio = document.querySelector('input[name="timelineOpt"]:checked');
+    const factor = parseFloat(selectedRadio ? selectedRadio.value : 1.0);
+    
+    cost = cost * factor;
+    days = days / factor;
+
+    // Format outputs
+    estBudget.textContent = `£${Math.round(cost).toLocaleString()}`;
+    
+    const weeks = Math.max(1, Math.round(days / 5)); // 5 working days per week
+    estTimeline.textContent = `${weeks} ${weeks === 1 ? 'Week' : 'Weeks'}`;
+  }
+
+  // Bind Listeners
+  selectScope.addEventListener('change', calculateQuote);
+  sliderPages.addEventListener('input', calculateQuote);
+
+  // Checkbox Card Bindings
+  document.querySelectorAll('.check-card').forEach(card => {
+    const cb = card.querySelector('input[type="checkbox"]');
+    card.addEventListener('click', () => {
+      cb.checked = !cb.checked;
+      card.classList.toggle('checked', cb.checked);
+      calculateQuote();
+    });
+  });
+
+  // Radio Timeline Card Bindings
+  document.querySelectorAll('.radio-card').forEach(card => {
+    const radio = card.querySelector('input[type="radio"]');
+    card.addEventListener('click', () => {
+      document.querySelectorAll('.radio-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      radio.checked = true;
+      calculateQuote();
+    });
+  });
+
+  // Quote Request submit -> Redirect to Contact with prefill parameters
+  btnEstimatorRequest.addEventListener('click', () => {
+    const scopeName = selectScope.options[selectScope.selectedIndex].text;
+    const pages = sliderPages.value;
+    const budget = estBudget.textContent;
+    const timeline = estTimeline.textContent;
+    
+    let featuresList = [];
+    if (featDB.checked) featuresList.push("DB/CMS");
+    if (featPay.checked) featuresList.push("Stripe Pay");
+    if (featAuth.checked) featuresList.push("Auth/Users");
+    if (featSupport.checked) featuresList.push("24/7 SLA");
+    
+    const featuresStr = featuresList.length > 0 ? ` with features: [${featuresList.join(', ')}]` : '';
+    
+    const message = `Hello, I checked the estimate calculator and would like to request a quote. Project details: Scope: ${scopeName}, Pages: ${pages}${featuresStr}. Calculated Budget: ${budget}, estimated timeline: ${timeline}.`;
+    
+    // Redirect with pre-populated URL parameters
+    window.location.href = `contact.html?service=${encodeURIComponent(scopeName)}&message=${encodeURIComponent(message)}`;
+  });
+
+  // Run calculation on load
+  calculateQuote();
+</script>
+</body>
+</html>

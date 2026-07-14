@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ETECHPROVIDER — Software, SEO &amp; Social, London UK</title>
+<meta name="description" content="ETECHPROVIDER is a UK-based digital partner delivering custom software, SEO, social media marketing and paid advertising under one roof.">
+<!-- OpenGraph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://etechprovider.co.uk">
+<meta property="og:title" content="ETECHPROVIDER — Software, SEO &amp; Social, UK">
+<meta property="og:description" content="UK-based digital partner delivering software development, SEO, social media marketing and paid advertising under one roof.">
+<meta property="og:image" content="https://etechprovider.co.uk/img/fintech-dashboard.png">
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://etechprovider.co.uk">
+<meta property="twitter:title" content="ETECHPROVIDER — Software, SEO &amp; Social, UK">
+<meta property="twitter:description" content="UK-based digital partner delivering software development, SEO, social media marketing and paid advertising under one roof.">
+<meta property="twitter:image" content="https://etechprovider.co.uk/img/fintech-dashboard.png">
+<!-- Canonical Link -->
+<link rel="canonical" href="https://etechprovider.co.uk">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* Page specific styles */
+  .hero{padding:96px 0 70px;overflow:hidden;}
+  .hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+  .hero h1{font-size:clamp(2.2rem, 4vw, 3.4rem); font-weight:700;}
+  .hero h1 span{color:var(--signal);}
+  .hero p.lead{
+    color:var(--muted); font-size:1.08rem; max-width:480px; margin:22px 0 34px; line-height:1.6;
+  }
+  .hero .cta-row{display:flex;gap:14px;flex-wrap:wrap;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    color:var(--signal);font-size:0.76rem;font-weight:500;
+    padding:6px 12px;border:1px solid var(--signal); border-radius:20px;
+    background:var(--signal-dim); margin-bottom:26px;
+  }
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--signal);
+    box-shadow:0 0 0 3px var(--signal-dim); animation:pulse 1.8s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.35;}}
+
+  /* Interactive Switchboard Display */
+  .switchboard-container {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 20px;
+    align-items: center;
+    background: rgba(17, 26, 46, 0.4);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 24px;
+    backdrop-filter: blur(8px);
+  }
+  .switchboard svg { width: 100%; height: auto; overflow: visible; }
+  .sb-line-active {
+    stroke: var(--signal); stroke-width: 1.5; stroke-dasharray: 6 8;
+    animation: flow 3s linear infinite;
+  }
+  @keyframes flow { to { stroke-dashoffset: -140; } }
+
+  .hero-panel {
+    background: var(--ink-2);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 24px;
+    height: 100%;
+    min-height: 290px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .hero-panel.switching {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  .hero-panel h3 { font-size: 1.25rem; color: var(--paper); margin-bottom: 8px; }
+  .hero-panel .sub { font-size: 0.82rem; font-family: 'IBM Plex Mono', monospace; color: var(--signal); margin-bottom: 16px; }
+  .hero-panel p { color: var(--muted); font-size: 0.88rem; line-height: 1.55; margin: 0 0 16px; }
+  .hero-panel ul { list-style: none; padding: 0; margin: 0 0 20px; }
+  .hero-panel li { font-size: 0.82rem; color: var(--muted-2); margin-bottom: 6px; padding-left: 14px; position: relative; }
+  .hero-panel li::before { content: ''; position: absolute; left: 0; top: 6px; width: 5px; height: 1.5px; background: var(--signal); }
+  .hero-panel .tech-badge {
+    display: inline-block; font-size: 0.72rem; color: var(--amber); border: 1px solid rgba(255,180,84,0.3);
+    padding: 2px 6px; border-radius: 4px; background: rgba(255,180,84,0.06); margin-right: 6px; margin-top: 6px;
+  }
+
+  /* Marquee */
+  .marquee-wrap{
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    background:var(--ink-2); padding:16px 0; overflow:hidden;
+  }
+  .marquee{display:flex;width:max-content;animation:scroll 26s linear infinite;}
+  .marquee-wrap:hover .marquee{animation-play-state:paused;}
+  .marquee span{
+    font-family:'IBM Plex Mono',monospace; font-size:0.82rem; color:var(--muted-2);
+    padding:0 28px; white-space:nowrap; border-right:1px solid var(--line);
+  }
+  @keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+  /* Services Teaser Grid */
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+  }
+  .svc-card {
+    background: var(--ink-2); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 28px; transition: border-color .3s, transform .3s, box-shadow .3s;
+  }
+  .svc-card:hover {
+    border-color: var(--signal); transform: translateY(-5px);
+    box-shadow: 0 12px 30px -10px rgba(70,232,199,0.15);
+  }
+  .svc-card-icon {
+    width: 44px; height: 44px; stroke: var(--signal); fill: none; margin-bottom: 20px;
+  }
+  .svc-card h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 10px; }
+  .svc-card p { color: var(--muted); font-size: 0.93rem; line-height: 1.55; margin-bottom: 20px; }
+
+  /* Testimonials Teasers */
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .testi-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; background: var(--ink-2); }
+  .testi-card p { font-size: 0.95rem; line-height: 1.6; color: var(--paper); margin-bottom: 18px; }
+  .testi-who { display: flex; align-items: center; gap: 12px; }
+  .testi-avatar { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 1px solid var(--line); }
+  .testi-name { font-size: 0.88rem; font-weight: 600; }
+  .testi-role { font-size: 0.78rem; color: var(--muted); }
+
+  /* CTA Banner */
+  .cta-banner{
+    background:var(--ink-2); border:1px solid var(--line); border-radius:20px;
+    padding:56px; text-align:center; position:relative; overflow:hidden;
+  }
+  .cta-banner h2{font-size:clamp(1.6rem,3vw,2.2rem); font-weight:700; margin-bottom:16px;}
+  .cta-banner p{color:var(--muted); margin-bottom:28px; max-width:480px; margin-left:auto; margin-right:auto; position:relative; z-index:1;}
+  .cta-banner .cta-row{justify-content:center; position:relative; z-index:1;}
+
+  @media (max-width: 980px) {
+    .hero .wrap { grid-template-columns: 1fr; }
+    .switchboard-container { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div id="scrollProgress"></div>
+
+<header>
+  <nav>
+    <a href="index.html" class="logo"><span class="brk">ETP</span> ETECHPROVIDER</a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About &amp; Process</a>
+      <a href="work.html">Work</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="payments.html">Payments</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div style="display:flex; align-items:center; gap:14px;">
+      <a href="contact.html" class="btn btn-primary nav-cta">Get a quote</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="circuit-bg"></div>
+  <div class="glow-bg"></div>
+  <div class="wrap">
+    <div>
+      <div class="eyebrow"><span class="dot"></span>UK-BASED DIGITAL PARTNER · LONDON</div>
+      <h1>We plug your business into <span>the internet.</span></h1>
+      <p class="lead">Software, SEO and social media campaigns — built and run under one roof, ensuring strategy and code function in perfect sync.</p>
+      <div class="cta-row">
+        <a href="pricing.html" class="btn btn-primary">Start a project →</a>
+        <a href="services.html" class="btn btn-ghost">Explore capabilities</a>
+      </div>
+    </div>
+
+    <div class="switchboard-container">
+      <div class="switchboard">
+        <svg viewBox="0 0 420 340" fill="none">
+          <!-- connecting lines -->
+          <path class="sb-line-active" d="M210 170 L 60 57" id="line-dev" />
+          <path class="sb-line-active" d="M210 170 L 210 31" id="line-seo" />
+          <path class="sb-line-active" d="M210 170 L 360 57" id="line-smm" />
+          <path class="sb-line-active" d="M210 170 L 60 277" id="line-ads" />
+          <path class="sb-line-active" d="M210 170 L 210 301" id="line-ux" />
+          <path class="sb-line-active" d="M210 170 L 360 277" id="line-cloud" />
+
+          <!-- outer nodes -->
+          <rect class="sb-node" x="20" y="34" width="80" height="46" rx="8" id="node-dev" data-id="dev" />
+          <text class="sb-label" x="60" y="57" text-anchor="middle">DEV</text>
+
+          <rect class="sb-node" x="170" y="8" width="80" height="46" rx="8" id="node-seo" data-id="seo" />
+          <text class="sb-label" x="210" y="31" text-anchor="middle">SEO</text>
+
+          <rect class="sb-node" x="320" y="34" width="80" height="46" rx="8" id="node-smm" data-id="smm" />
+          <text class="sb-label" x="360" y="57" text-anchor="middle">SMM</text>
+
+          <rect class="sb-node" x="20" y="254" width="80" height="46" rx="8" id="node-ads" data-id="ads" />
+          <text class="sb-label" x="60" y="277" text-anchor="middle">ADS</text>
+
+          <rect class="sb-node" x="170" y="278" width="80" height="46" rx="8" id="node-ux" data-id="ux" />
+          <text class="sb-label" x="210" y="301" text-anchor="middle">UX</text>
+
+          <rect class="sb-node" x="320" y="254" width="80" height="46" rx="8" id="node-cloud" data-id="cloud" />
+          <text class="sb-label" x="360" y="277" text-anchor="middle">CLOUD</text>
+
+          <!-- core hub -->
+          <circle class="sb-node-core" cx="210" cy="170" r="34" id="node-core" data-id="core" />
+          <text class="sb-label-core" x="210" y="170" text-anchor="middle">ETP</text>
+        </svg>
+      </div>
+
+      <div class="hero-panel" id="switchboard-detail">
+        <div>
+          <h3>Interactive Switchboard</h3>
+          <div class="sub">// GET STARTED</div>
+          <p>Click any node (DEV, SEO, SMM, ADS, UX, CLOUD) on the switchboard to explore how ETECHPROVIDER operates as your digital core.</p>
+          <ul>
+            <li>Select components to view core stacks</li>
+            <li>Eliminate agency handoff issues</li>
+            <li>Maintain clear single team accountability</li>
+          </ul>
+        </div>
+        <div>
+          <span class="tech-badge">Unified Strategy</span>
+          <span class="tech-badge">Custom Dev</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-wrap">
+  <div class="marquee">
+    <span>SOFTWARE DEVELOPMENT</span><span>SEARCH ENGINE OPTIMISATION</span><span>SOCIAL MEDIA MARKETING</span><span>PAID ADVERTISING</span><span>UI / UX DESIGN</span><span>CLOUD & DEVOPS</span>
+    <span>SOFTWARE DEVELOPMENT</span><span>SEARCH ENGINE OPTIMISATION</span><span>SOCIAL MEDIA MARKETING</span><span>PAID ADVERTISING</span><span>UI / UX DESIGN</span><span>CLOUD & DEVOPS</span>
+  </div>
+</div>
+
+<section class="section-pad">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="mono">// WHAT WE BUILD</span>
+      <h2>Full-stack capabilities, integrated strategy</h2>
+      <p>Why divide your web strategy between three disconnected agencies? We manage engineering and visibility together.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="svc-card">
+        <svg class="svc-card-icon" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="16 18 22 12 16 6"></polyline>
+          <polyline points="8 6 2 12 8 18"></polyline>
+        </svg>
+        <h3>Software &amp; Web Apps</h3>
+        <p>Highly scalable, custom web apps and transactional platforms engineered using React and Node.js.</p>
+        <a href="services.html#dev" style="color:var(--signal); font-size:0.85rem; font-weight:600;">Learn details →</a>
+      </div>
+
+      <div class="svc-card">
+        <svg class="svc-card-icon" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <h3>Technical SEO Growth</h3>
+        <p>Site architecture optimizations and organic content blueprints designed to rank for revenue intent.</p>
+        <a href="services.html#seo" style="color:var(--signal); font-size:0.85rem; font-weight:600;">Learn details →</a>
+      </div>
+
+      <div class="svc-card">
+        <svg class="svc-card-icon" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+        </svg>
+        <h3>Social &amp; Campaigns</h3>
+        <p>Vibrant social distribution, Meta tracking setups, and paid advertising optimized for conversions.</p>
+        <a href="services.html#smm" style="color:var(--signal); font-size:0.85rem; font-weight:600;">Learn details →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad" style="background:var(--ink-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="mono">// FEEDBACK</span>
+      <h2>Client trust, verified delivery</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <p>ETECHPROVIDER rebuilt our site and took over SEO in the same month. Traffic and enquiries both grew steadily within the first quarter.</p>
+        <div class="testi-who">
+          <img src="img/avatar-ops.png" class="testi-avatar" alt="Operations Director">
+          <div><div class="testi-name">Operations Director</div><div class="testi-role">Retail client, UK</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <p>Having one team handle development and paid social meant no more back-and-forth between two agencies. Everything just moved faster.</p>
+        <div class="testi-who">
+          <img src="img/avatar-marketing.png" class="testi-avatar" alt="Marketing Manager">
+          <div><div class="testi-name">Marketing Manager</div><div class="testi-role">SaaS client, EU</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <p>Clear reporting, honest timelines, and a genuinely useful product at the end of it. Exactly what we needed for our relaunch.</p>
+        <div class="testi-who">
+          <img src="img/avatar-founder.png" class="testi-avatar" alt="Founder">
+          <div><div class="testi-name">Founder</div><div class="testi-role">D2C brand, UK</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="wrap">
+    <div class="cta-banner">
+      <div class="circuit-bg"></div>
+      <div class="glow-bg"></div>
+      <h2>Ready to plug in?</h2>
+      <p>Build your estimate with our interactive quote calculator or speak with our London team directly.</p>
+      <div class="cta-row">
+        <a href="pricing.html" class="btn btn-primary">Try interactive estimator</a>
+        <a href="contact.html" class="btn btn-ghost">Speak to an expert</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div style="max-width:280px;">
+        <a href="index.html" class="logo"><span class="brk">ETP</span> ETECHPROVIDER</a>
+        <p style="color:var(--muted); font-size:0.88rem; margin-top:14px; line-height:1.6;">A UK-based digital partner delivering custom software, SEO and social under one roof.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Capabilities</h4>
+          <a href="services.html#dev">Software Dev</a>
+          <a href="services.html#seo">SEO Growth</a>
+          <a href="services.html#smm">Social Media</a>
+          <a href="services.html#ads">Paid Ads</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="about.html">About &amp; Process</a>
+          <a href="work.html">Selected Work</a>
+          <a href="pricing.html">Interactive Estimator</a>
+          <a href="payments.html">Pay Invoice</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://linkedin.com/company/etechprovider" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://instagram.com/etechprovider" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://twitter.com/etechprovider" target="_blank" rel="noopener">X / Twitter</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> ETECHPROVIDER. All rights reserved.</span>
+      <span>Registered in England &amp; Wales · London, UK</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  // Page specific Switchboard interactivity
+  const switchboardData = {
+    core: {
+      title: "ETECHPROVIDER Digital Hub",
+      sub: "// CENTRAL ORCHESTRATION",
+      desc: "Click any node (DEV, SEO, SMM, ADS, UX, CLOUD) to view how we consolidate operations into a single accountable team, eliminating multi-agency friction.",
+      list: ["Consistent brand guidelines", "Accelerated delivery timelines", "Direct communications without accounts filters"],
+      tech: ["Unified Strategy", "Shared Accountability"]
+    },
+    dev: {
+      title: "Software & Web Development",
+      sub: "// CAPABILITY DEV",
+      desc: "Custom web applications, transactional e-commerce builds, and SaaS backbones built to handle high load scales safely from day one.",
+      list: ["Custom Web & Mobile applications", "Headless CMS & SaaS integration", "Scalable API & gateway developments"],
+      tech: ["React.js", "Node.js", "WebSockets", "Flutter", "PostgreSQL"]
+    },
+    seo: {
+      title: "Technical SEO & Search Analytics",
+      sub: "// CAPABILITY SEO",
+      desc: "Structural SEO enhancements, core web vitals optimization, and user intent search layout strategies that gain organic customers.",
+      list: ["High-intent search keyword mappings", "Schema integrations & site architecture fixes", "Ongoing editorial link acquisition profiles"],
+      tech: ["SEMrush", "Ahrefs", "Google Search Console", "Structured Data"]
+    },
+    smm: {
+      title: "Social Media Distribution",
+      sub: "// CAPABILITY SMM",
+      desc: "Tailored brand voice content distribution, custom community operations, and UGC curation to expand organic engagement footprint.",
+      list: ["Creative copywriting & assets planning", "Audience engagement & community management", "User-Generated Content (UGC) campaigns"],
+      tech: ["Figma", "Sprout Social", "Adobe Premiere", "Brand Tone Guide"]
+    },
+    ads: {
+      title: "PPC & Meta Campaign Funnels",
+      sub: "// CAPABILITY ADS",
+      desc: "High ROAS paid acquisitions deploying rigorous search intent matches and high-converting retargeting paid social creatives.",
+      list: ["ROI-driven Google Ads setups", "Meta & TikTok pixel tracking setups", "Ongoing conversion landing pages split-testing"],
+      tech: ["Google Ads Manager", "Meta Ads Suite", "TikTok Ads Manager", "Hotjar"]
+    },
+    ux: {
+      title: "UI/UX & Product Strategy",
+      sub: "// CAPABILITY UX",
+      desc: "Modern digital interfaces built for maximum clarity, wireframed and prototyping systems verified by real customer testers.",
+      list: ["Detailed Figma design systems", "Hi-fi clickable web & mobile wireframes", "User journey audits and heatmap analyses"],
+      tech: ["Figma", "Adobe XD", "Principle", "UserTesting"]
+    },
+    cloud: {
+      title: "Cloud Architecture & DevOps",
+      sub: "// CAPABILITY CLOUD",
+      desc: "Continuous integration workflows, container orchestration services, and 24/7 support structures keeping builds running.",
+      list: ["Highly secure cloud infrastructure management", "CI/CD automated deployment script architectures", "Dockerized containerization schemes"],
+      tech: ["AWS", "Docker", "Kubernetes", "GitHub Actions", "Cloudflare"]
+    }
+  };
+
+  const panel = document.getElementById('switchboard-detail');
+  
+  function updatePanel(key) {
+    const data = switchboardData[key];
+    if (!data) return;
+
+    panel.classList.add('switching');
+    
+    setTimeout(() => {
+      let listHTML = '';
+      data.list.forEach(item => {
+        listHTML += `<li>${item}</li>`;
+      });
+      
+      let techHTML = '';
+      data.tech.forEach(t => {
+        techHTML += `<span class="tech-badge">${t}</span>`;
+      });
+
+      panel.querySelector('h3').textContent = data.title;
+      panel.querySelector('.sub').textContent = data.sub;
+      panel.querySelector('p').textContent = data.desc;
+      panel.querySelector('ul').innerHTML = listHTML;
+      panel.querySelector('div:last-child').innerHTML = techHTML;
+      
+      panel.classList.remove('switching');
+    }, 150);
+  }
+
+  // Bind click handlers to nodes
+  document.querySelectorAll('.sb-node, .sb-node-core').forEach(node => {
+    node.addEventListener('click', (e) => {
+      const key = node.getAttribute('data-id');
+      updatePanel(key);
+      
+      // Highlight node glow border or fill
+      document.querySelectorAll('.sb-node').forEach(n => n.style.stroke = '');
+      document.getElementById('node-core').style.fill = '';
+      
+      if (node.id === 'node-core') {
+        node.style.fill = '#5ffff0';
+      } else {
+        node.style.stroke = '#46E8C7';
+      }
+    });
+  });
+</script>
+</body>
+</html>
