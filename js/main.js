@@ -1,8 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Clean URLs: strip .html extension from the address bar immediately
   if (window.location.pathname.endsWith('.html')) {
+    const originalHash = window.location.hash;
     const cleanPath = window.location.pathname.replace(/\.html$/, '');
-    window.history.replaceState({}, '', cleanPath + window.location.search + window.location.hash);
+    window.history.replaceState({}, '', cleanPath + window.location.search + originalHash);
+  }
+
+  // Smooth scroll to anchor target on direct load to prevent browser glitches
+  if (window.location.hash) {
+    const targetHash = window.location.hash;
+    setTimeout(() => {
+      try {
+        const targetEl = document.querySelector(targetHash);
+        if (targetEl) {
+          targetEl.scrollIntoView({ behavior: 'smooth' });
+        }
+      } catch (e) {
+        console.warn("Invalid hash query:", targetHash);
+      }
+    }, 150);
   }
 
   // Set current year in footer
