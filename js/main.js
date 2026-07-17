@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Clean URLs: strip .html extension from the address bar immediately
-  if (window.location.pathname.endsWith('.html')) {
+  // Clean URLs: strip .html extension from the address bar immediately (HTTP/HTTPS only)
+  if ((window.location.protocol === 'http:' || window.location.protocol === 'https:') && window.location.pathname.endsWith('.html')) {
     const originalHash = window.location.hash;
     const cleanPath = window.location.pathname.replace(/\.html$/, '');
     window.history.replaceState({}, '', cleanPath + window.location.search + originalHash);
