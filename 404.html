@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <script type="text/javascript">
+    var l = window.location;
+    var path = l.pathname;
+    var pages = ['services', 'about', 'work', 'pricing', 'payments', 'contact'];
+    var segment = path.split('/').pop();
+    
+    if (pages.includes(segment)) {
+      var newPath = path + '.html' + l.search + l.hash;
+      l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + newPath);
+    } else {
+      var segments = path.split('/');
+      segments.pop(); // Remove the trailing wrong segment
+      var homePath = segments.join('/') + '/index.html';
+      l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + homePath);
+    }
+  </script>
+</head>
+<body>
+</body>
+</html>
