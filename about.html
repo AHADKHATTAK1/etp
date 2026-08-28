@@ -111,10 +111,26 @@
 
   @media (max-width: 900px) {
     .grid-2col { grid-template-columns: 1fr; gap: 32px; }
-    .process-timeline { grid-template-columns: 1fr; }
+    .process-timeline { grid-template-columns: repeat(3,1fr); }
     .proc-step-btn { border-radius: 8px; border-top: none; border-left: 2px solid var(--ink-3); padding: 14px 20px; }
     .proc-step-btn.active { border-left-color: var(--signal); border-top-color: transparent; }
     .process-panel { grid-template-columns: 1fr; padding: 28px; }
+    .stats-bar { grid-template-columns: repeat(2,1fr); }
+  }
+  @media (max-width: 680px) {
+    .about-header { padding: 56px 0 28px; }
+    .about-content { padding: 48px 0; }
+    .stats-bar { grid-template-columns: repeat(2,1fr); gap: 16px; padding: 24px 18px; margin-top: 36px; }
+    .stat .n { font-size: 1.75rem; }
+    .process-timeline { grid-template-columns: 1fr; gap: 8px; }
+    .proc-step-btn { padding: 12px 16px; }
+    .proc-step-btn h4 { font-size: 0.92rem; }
+    .process-panel { padding: 20px; gap: 24px; min-height: auto; }
+    .process-panel h3 { font-size: 1.2rem; }
+  }
+  @media (max-width: 480px) {
+    .about-header { padding: 44px 0 24px; }
+    .stats-bar { grid-template-columns: 1fr; row-gap: 16px; }
   }
 </style>
 </head>
