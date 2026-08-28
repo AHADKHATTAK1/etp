@@ -1,0 +1,31 @@
+# ETechProvider
+
+> ETechProvider is a UK-based digital agency providing professional web development, SEO, digital marketing, paid advertising, and technology solutions for businesses across the United Kingdom.
+
+## Website
+https://etechprovider.co.uk/
+
+## Services
+https://etechprovider.co.uk/services.html
+
+Custom web and app engineering, search engine optimisation (SEO), paid social funnels, UI/UX design, and cloud infrastructure operations.
+
+## About
+https://etechprovider.co.uk/about.html
+
+Learn about ETechProvider's values, team, and our 5-step collaborative process from discovery to ongoing campaign growth.
+
+## Pricing
+https://etechprovider.co.uk/pricing.html
+
+Flexible pricing tiers and a live quote estimator for web application and SEO campaign costs.
+
+## Portfolio
+https://etechprovider.co.uk/work.html
+
+Digital case studies including fintech dashboards, fashion brand campaigns, e-commerce POS systems, and healthcare booking platforms.
+
+## Contact
+https://etechprovider.co.uk/contact.html
+
+Get in touch with ETechProvider for project briefs, custom quotes, and consultations.
