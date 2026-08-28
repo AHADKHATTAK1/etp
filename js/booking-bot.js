@@ -98,7 +98,7 @@
     style.textContent = `
       /* ── Bot Widget ── */
       #etp-bot-fab{
-        position:fixed; bottom:28px; right:28px; z-index:9000;
+        position:fixed; bottom:28px; right:28px; z-index:2147483647;
         width:60px; height:60px; border-radius:50%;
         background:linear-gradient(135deg,#fff 0%,#c8c8c8 100%);
         border:none; cursor:pointer; box-shadow:0 8px 30px rgba(0,0,0,.55);
@@ -124,7 +124,7 @@
       @keyframes badgeBounce{0%,100%{transform:scale(1);}50%{transform:scale(1.3);}}
 
       #etp-bot-panel{
-        position:fixed; bottom:100px; right:28px; z-index:8999;
+        position:fixed; bottom:100px; right:28px; z-index:2147483646;
         width:380px; max-width:calc(100vw - 40px);
         background:rgba(10,10,10,0.96);
         backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
@@ -353,8 +353,14 @@
       </div>
     `;
 
-    document.body.appendChild(fab);
-    document.body.appendChild(panel);
+    // Append to <html> root — escapes ALL stacking contexts from body children
+    // (e.g. filter:blur on .glow-bg creates new stacking contexts that trap fixed elements)
+    document.documentElement.appendChild(fab);
+    document.documentElement.appendChild(panel);
+
+    // Inline style overrides — extra guarantee in case CSS specificity loses
+    fab.style.cssText += ';position:fixed!important;z-index:2147483647!important;bottom:28px!important;right:28px!important;';
+    panel.style.cssText += ';position:fixed!important;z-index:2147483646!important;bottom:100px!important;right:28px!important;';
 
     /* Wire events */
     fab.addEventListener('click', togglePanel);
