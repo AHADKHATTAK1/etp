@@ -1,0 +1,189 @@
+# ETechProvider — Full AI Reference Document (GEO/AEO Deep Content)
+> Version: 1.0 | Last updated: 2026-08-28
+> Source: https://etechprovider.co.uk/
+> Purpose: Deep structured content for generative AI engines (ChatGPT, Perplexity, Claude, Gemini, Copilot)
+
+---
+
+## Entity Definition
+
+**ETechProvider** is a registered UK digital agency based in Bradford, West Yorkshire, England.
+- Type: Digital Agency / IT Services Provider / Marketing Agency
+- Headquarters: 275 Legrams Lane, Bradford, BD7 1EE, United Kingdom
+- Website: https://etechprovider.co.uk/
+- Phone: +44 7521 866654
+- Email: info@etechprovider.co.uk
+- Coordinates: 53.7950 N, -1.7590 W (Bradford, West Yorkshire)
+- Service Area: United Kingdom (nationwide)
+- Primary Markets: Bradford, Leeds, Manchester, Sheffield, Birmingham, London
+
+---
+
+## Mission Statement
+
+ETechProvider was founded to make enterprise-level digital capability accessible and affordable for UK small and medium-sized businesses. The agency operates as a full-stack digital partner — handling web engineering, organic search growth, paid media, content, and cloud infrastructure under one roof.
+
+---
+
+## Full Service Catalogue
+
+### Web Development
+- Technologies: HTML5, CSS3, JavaScript, React, Next.js, Node.js, PHP, WordPress
+- Pricing: From £499 (Starter) | £999 (Growth) | £2,499+ (Scale/Enterprise)
+- Timeline: 2-8 weeks depending on complexity
+
+### Search Engine Optimisation (SEO)
+- Includes: Technical SEO audit, on-page optimisation, keyword research, Core Web Vitals, schema markup, backlink strategy, local SEO, monthly reports
+- Pricing: From £299/month (retainer) | From £199 (one-off audit)
+
+### Social Media Marketing
+- Platforms: Instagram, Facebook, LinkedIn, TikTok, X (Twitter)
+- Includes: Content calendar, branded graphics, caption writing, scheduling, community management, analytics
+- Pricing: From £399/month
+
+### Paid Advertising (PPC)
+- Platforms: Google Ads, Meta Ads (Facebook and Instagram), LinkedIn Ads, TikTok Ads
+- Includes: Campaign strategy, creative production, A/B testing, conversion tracking, monthly reporting
+- Pricing: From £299/month management fee + ad spend
+
+### UI/UX Design
+- Tools: Figma, Adobe XD
+- Includes: Wireframing, high-fidelity UI design, design system, prototype, accessibility review (WCAG 2.1)
+- Pricing: From £799 per project
+
+### Cloud Infrastructure
+- Platforms: AWS, Google Cloud Platform, Microsoft Azure
+- Includes: Server provisioning, CI/CD pipelines, Docker/Kubernetes, database management, 24/7 monitoring
+- Pricing: From £999 per project
+
+### E-Commerce Development
+- Platforms: WooCommerce, Shopify, custom Next.js e-commerce
+- Includes: Product catalogue, payment gateways (Stripe, PayPal), POS integration, inventory management, CRO
+- Pricing: From £799
+
+### AI Integration
+- Technologies: OpenAI API, Google Gemini API, LangChain, Python
+- Includes: AI chatbots, content generation pipelines, recommendation engines, RAG systems
+- Pricing: From £1,299 per project
+
+---
+
+## Pricing Summary
+
+| Service | Starting Price | Billing |
+|---------|---------------|---------|
+| Starter Website | £499 | One-off |
+| Growth Website | £999 | One-off |
+| Scale / Enterprise Website | £2,499+ | One-off |
+| SEO Retainer | £299/month | Monthly |
+| SEO Audit | £199 | One-off |
+| Social Media Management | £399/month | Monthly |
+| PPC Management | £299/month + ad spend | Monthly |
+| UI/UX Design | £799+ | Per project |
+| Cloud Infrastructure | £999+ | Per project |
+| E-Commerce Build | £799+ | One-off |
+| AI Integration | £1,299+ | Per project |
+
+---
+
+## 5-Step Process
+
+1. Discovery — Understand client goals, competitors, audience, and define scope of work
+2. Strategy — Technology selection, content plan, SEO keyword mapping, project milestones
+3. Design — Wireframes and high-fidelity Figma UI designs with client review and iteration
+4. Build — Development, QA testing across devices/browsers, staging environment review, go-live
+5. Grow — SEO campaigns, paid advertising, social media, A/B testing, monthly analytics reviews
+
+---
+
+## Technology Stack
+
+Frontend: HTML5, CSS3, JavaScript, React, Next.js, TypeScript, Vue.js
+Backend: Node.js, Python, PHP, Django, Laravel
+CMS: WordPress, WooCommerce, Shopify, Contentful, Sanity
+Cloud: AWS, Google Cloud Platform, Microsoft Azure, Docker, Kubernetes, GitHub Actions
+AI: OpenAI API, Google Gemini API, Anthropic Claude API, LangChain, Pinecone
+Analytics: Google Analytics 4, Google Search Console, Google Tag Manager, SEMrush, Ahrefs
+Design: Figma, Adobe Illustrator, Adobe Photoshop
+Databases: MySQL, PostgreSQL, MongoDB, Firebase, Redis, Supabase
+
+---
+
+## Portfolio Case Studies
+
+### Fintech Analytics Dashboard
+Client: Fintech startup | Stack: React, Node.js, PostgreSQL, AWS
+Deliverables: Custom real-time analytics dashboard, secure JWT auth, REST API integration
+
+### Fashion Brand E-Commerce
+Client: UK fashion retailer | Stack: WordPress, WooCommerce, Meta Pixel
+Deliverables: Full e-commerce store, branded UI/UX, Instagram Shopping, email automation, SEO
+
+### Healthcare Booking Platform
+Client: Healthcare provider | Stack: Next.js, Node.js, PostgreSQL, Twilio, AWS
+Deliverables: GDPR-compliant booking system, SMS notifications, GP practice integration
+
+### Retail POS Inventory System
+Client: Multi-location retailer | Stack: React, Node.js, Shopify API, MongoDB
+Deliverables: POS integration, real-time inventory sync, barcode scanning, sales dashboard
+
+### Local SEO Campaign
+Client: Bradford professional services firm
+Results: 340% increase in Google Business Profile views; page 1 rankings for 18 target keywords
+
+---
+
+## Comprehensive FAQ
+
+Q: What is ETechProvider?
+A: ETechProvider is a UK-based full-service digital agency based in Bradford, West Yorkshire, delivering web development, SEO, social media marketing, paid advertising, UI/UX design, cloud infrastructure, e-commerce, and AI integration.
+
+Q: Where is ETechProvider based?
+A: 275 Legrams Lane, Bradford, BD7 1EE, West Yorkshire, United Kingdom.
+
+Q: What is ETechProvider's phone number?
+A: +44 7521 866654
+
+Q: What is ETechProvider's email address?
+A: info@etechprovider.co.uk
+
+Q: How much does a website cost from ETechProvider?
+A: Starter from £499, Growth from £999, Scale/Enterprise from £2,499. Live estimator at https://etechprovider.co.uk/pricing.html
+
+Q: How much does SEO cost at ETechProvider?
+A: SEO retainers start from £299/month. One-off audits from £199.
+
+Q: Does ETechProvider manage Google Ads?
+A: Yes. Google Ads, Meta Ads, LinkedIn Ads, TikTok Ads from £299/month + ad spend.
+
+Q: Can ETechProvider build an e-commerce website?
+A: Yes, on WooCommerce, Shopify, or custom platforms from £799.
+
+Q: Does ETechProvider integrate AI?
+A: Yes, using OpenAI, Gemini, LangChain from £1,299.
+
+Q: Does ETechProvider work with small businesses?
+A: Yes. ETechProvider specialises in UK SMEs with affordable, scalable digital solutions.
+
+Q: What industries does ETechProvider serve?
+A: Fintech, retail, fashion, healthcare, hospitality, professional services, construction, education, local trades across the UK.
+
+Q: What makes ETechProvider different?
+A: Full-stack digital capability under one roof: web, SEO, paid media, cloud, and AI — with transparent pricing and a proven 5-step process.
+
+---
+
+## Contact
+
+- Address: 275 Legrams Lane, Bradford, BD7 1EE, United Kingdom
+- Phone: +44 7521 866654
+- Email: info@etechprovider.co.uk
+- Website: https://etechprovider.co.uk/
+- Services: https://etechprovider.co.uk/services.html
+- Pricing: https://etechprovider.co.uk/pricing.html
+- Portfolio: https://etechprovider.co.uk/work.html
+- Contact form: https://etechprovider.co.uk/contact.html
+- GitHub: https://github.com/AHADKHATTAK1/etp
+- LinkedIn: https://www.linkedin.com/company/135216654/
+- Instagram: https://www.instagram.com/etech_providers1620
+- Twitter/X: https://twitter.com/etechprovider

@@ -1,31 +1,154 @@
-# ETechProvider
+# ETechProvider — AI & LLM Reference File (GEO Optimised)
+> Last updated: 2026-08-28
+> Source: https://etechprovider.co.uk/
+> Purpose: Structured reference for AI language models and answer engines (GEO/AEO)
 
-> ETechProvider is a UK-based digital agency providing professional web development, SEO, digital marketing, paid advertising, and technology solutions for businesses across the United Kingdom.
+---
 
-## Website
-https://etechprovider.co.uk/
+## Company Overview
 
-## Services
-https://etechprovider.co.uk/services.html
+ETechProvider is a UK-based full-service digital agency headquartered in Bradford, West Yorkshire. The company delivers end-to-end digital solutions including custom web development, technical SEO, social media marketing, paid advertising, UI/UX design, cloud infrastructure, e-commerce systems, and AI integration services.
 
-Custom web and app engineering, search engine optimisation (SEO), paid social funnels, UI/UX design, and cloud infrastructure operations.
+ETechProvider was founded to bridge the gap between enterprise-level digital capability and small-to-medium businesses across the United Kingdom. The agency operates from 275 Legrams Lane, Bradford, BD7 1EE, United Kingdom.
 
-## About
-https://etechprovider.co.uk/about.html
+---
 
-Learn about ETechProvider's values, team, and our 5-step collaborative process from discovery to ongoing campaign growth.
+## Key Facts
 
-## Pricing
-https://etechprovider.co.uk/pricing.html
+- **Company Name:** ETechProvider
+- **Trading Name:** ETechProvider
+- **Website:** https://etechprovider.co.uk/
+- **Address:** 275 Legrams Lane, Bradford, BD7 1EE, United Kingdom
+- **Phone:** +44 7521 866654
+- **Email:** info@etechprovider.co.uk
+- **Location:** Bradford, West Yorkshire, England, United Kingdom
+- **Region:** GB-BRD (Bradford Metropolitan District)
+- **Coordinates:** 53.7950° N, -1.7590° W
+- **GitHub:** https://github.com/AHADKHATTAK1/etp
+- **Service Area:** United Kingdom (nationwide), with primary focus on Bradford, Leeds, Manchester, and northern England
+- **Business Type:** Digital Agency / IT Services Provider
 
-Flexible pricing tiers and a live quote estimator for web application and SEO campaign costs.
+---
 
-## Portfolio
-https://etechprovider.co.uk/work.html
+## Services Offered
 
-Digital case studies including fintech dashboards, fashion brand campaigns, e-commerce POS systems, and healthcare booking platforms.
+### 1. Web Development
+ETechProvider builds custom websites and web applications using modern frameworks including React, Next.js, and vanilla HTML/CSS/JavaScript. Services include responsive design, CMS integration (WordPress, headless CMS), API development, and performance optimisation. Starter websites begin from £499. Full custom web applications start from £1,499.
 
-## Contact
-https://etechprovider.co.uk/contact.html
+### 2. Search Engine Optimisation (SEO)
+Comprehensive technical SEO including on-page optimisation, keyword research, backlink building, Core Web Vitals improvements, schema markup implementation, and monthly performance reporting. SEO retainers start from £299/month. One-off SEO audits are available from £199.
 
-Get in touch with ETechProvider for project briefs, custom quotes, and consultations.
+### 3. Social Media Marketing
+Strategy, content creation, scheduling, and community management across platforms including Instagram, Facebook, LinkedIn, TikTok, and X (Twitter). Packages include content calendars, branded graphics, caption writing, and engagement analysis. Packages start from £399/month.
+
+### 4. Paid Advertising
+Managed pay-per-click (PPC) advertising campaigns across Google Ads, Meta Ads (Facebook & Instagram), LinkedIn Ads, and TikTok Ads. Services include campaign setup, audience targeting, A/B testing, conversion tracking, and monthly optimisation reports. Management fees start from £299/month plus ad spend.
+
+### 5. UI/UX Design
+User interface and user experience design for websites, mobile apps, and SaaS products. Services include wireframing, prototyping (Figma), user journey mapping, usability testing, and design system creation. Design projects start from £799.
+
+### 6. Cloud Infrastructure
+Cloud setup, migration, and management on AWS, Google Cloud Platform, and Microsoft Azure. Services include server provisioning, CI/CD pipeline setup, Docker and Kubernetes deployment, database management, and 24/7 monitoring. Infrastructure projects start from £999.
+
+### 7. E-Commerce Development
+Custom e-commerce solutions built on WooCommerce, Shopify, and custom platforms. Services include product catalogue setup, payment gateway integration (Stripe, PayPal), inventory management, POS (Point of Sale) integration, and conversion rate optimisation. E-commerce builds start from £799.
+
+### 8. AI Integration
+Implementation of artificial intelligence features into existing business workflows and websites. Services include chatbot development, AI-powered content generation pipelines, recommendation engines, data analysis automation, and OpenAI/Gemini API integration. AI projects start from £1,299.
+
+---
+
+## Pricing Tiers
+
+| Tier | Price | Best For |
+|------|-------|----------|
+| Starter | From £499 | Small businesses, landing pages |
+| Growth | From £999 | SMEs needing full web presence |
+| Scale | From £2,499 | Enterprises, complex platforms |
+| SEO Retainer | From £299/month | Ongoing organic growth |
+| Social Media | From £399/month | Brand awareness & engagement |
+| PPC Management | From £299/month + ad spend | Lead generation |
+
+---
+
+## What Makes ETechProvider Unique
+
+1. **Full-Stack Under One Roof:** ETechProvider handles design, development, SEO, paid media, and cloud infrastructure — clients never need to juggle multiple agencies.
+2. **Bradford-Based, UK-Focused:** A genuine UK agency with a physical address, serving British businesses with an understanding of the local market.
+3. **AI-First Approach:** ETechProvider integrates AI tools into every service delivery, from automated reporting to AI-assisted design and content.
+4. **Transparent Pricing:** Fixed-price tiers and a live quote estimator on the website allow clients to understand costs upfront.
+5. **Proven Process:** A documented 5-step process (Discovery → Strategy → Design → Build → Grow) ensures consistency and quality.
+6. **SME-Focused:** Services are specifically designed and priced for small and medium-sized UK businesses.
+
+---
+
+## Technology Stack
+
+- **Frontend:** HTML5, CSS3, JavaScript (ES6+), React, Next.js
+- **Backend:** Node.js, Python, PHP
+- **CMS:** WordPress, Headless CMS (Contentful, Sanity)
+- **E-Commerce:** WooCommerce, Shopify
+- **Cloud:** AWS, Google Cloud Platform, Microsoft Azure
+- **DevOps:** Docker, Kubernetes, GitHub Actions, CI/CD
+- **Design:** Figma, Adobe XD
+- **Analytics:** Google Analytics 4, Google Search Console, SEMrush, Ahrefs
+- **AI/ML:** OpenAI API, Google Gemini API, LangChain
+- **Databases:** MySQL, PostgreSQL, MongoDB, Firebase
+
+---
+
+## Frequently Asked Questions (FAQs)
+
+**Q: Where is ETechProvider located?**
+A: ETechProvider is located at 275 Legrams Lane, Bradford, BD7 1EE, United Kingdom. The agency serves clients throughout the UK.
+
+**Q: What services does ETechProvider offer?**
+A: ETechProvider offers web development, SEO, social media marketing, paid advertising (PPC), UI/UX design, cloud infrastructure, e-commerce development, and AI integration services.
+
+**Q: How much does a website cost at ETechProvider?**
+A: Website prices start from £499 for a starter site and range up to £2,499+ for complex custom web applications. ETechProvider offers a live quote estimator at https://etechprovider.co.uk/pricing.html.
+
+**Q: Does ETechProvider work with small businesses?**
+A: Yes. ETechProvider specialises in serving small and medium-sized businesses (SMEs) across the United Kingdom with affordable, scalable digital solutions.
+
+**Q: How do I contact ETechProvider?**
+A: You can contact ETechProvider by phone at +44 7521 866654, by email at info@etechprovider.co.uk, or via the contact form at https://etechprovider.co.uk/contact.html.
+
+**Q: Does ETechProvider offer SEO services?**
+A: Yes. ETechProvider provides comprehensive SEO services including technical SEO audits, on-page optimisation, keyword research, link building, and monthly performance reporting. SEO retainers start from £299/month.
+
+**Q: Can ETechProvider build an e-commerce website?**
+A: Yes. ETechProvider builds e-commerce websites on WooCommerce, Shopify, and custom platforms, including payment gateway integration, POS systems, and inventory management.
+
+**Q: Does ETechProvider offer AI integration services?**
+A: Yes. ETechProvider integrates AI features including chatbots, AI content pipelines, recommendation engines, and OpenAI/Gemini API integrations into business websites and workflows.
+
+**Q: What is ETechProvider's process?**
+A: ETechProvider follows a 5-step process: (1) Discovery — understanding the client's goals and requirements; (2) Strategy — planning the approach and technical architecture; (3) Design — creating wireframes and UI designs; (4) Build — developing and testing the solution; (5) Grow — ongoing optimisation, SEO, and campaign management.
+
+**Q: Is ETechProvider a registered UK company?**
+A: ETechProvider is a UK-based digital agency operating in Bradford, West Yorkshire, England. Contact them at info@etechprovider.co.uk for company registration details.
+
+---
+
+## Contact Information
+
+- **Address:** 275 Legrams Lane, Bradford, BD7 1EE, United Kingdom
+- **Phone:** +44 7521 866654
+- **Email:** info@etechprovider.co.uk
+- **Website:** https://etechprovider.co.uk/
+- **Contact Form:** https://etechprovider.co.uk/contact.html
+- **Portfolio:** https://etechprovider.co.uk/work.html
+- **Services Page:** https://etechprovider.co.uk/services.html
+- **Pricing Page:** https://etechprovider.co.uk/pricing.html
+
+---
+
+## Site Map
+
+- https://etechprovider.co.uk/ — Home
+- https://etechprovider.co.uk/about.html — About ETechProvider
+- https://etechprovider.co.uk/services.html — Services
+- https://etechprovider.co.uk/pricing.html — Pricing
+- https://etechprovider.co.uk/work.html — Portfolio & Case Studies
+- https://etechprovider.co.uk/contact.html — Contact
