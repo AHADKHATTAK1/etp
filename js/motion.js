@@ -361,10 +361,40 @@
     document.body.appendChild(cursor);
 
     let mx = 0, my = 0;
+    let targetX = 0, targetY = 0;
+    let isSnapped = false;
+
     document.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
-      cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
-      trail.style.left  = mx + 'px'; trail.style.top  = my + 'px';
+      mx = e.clientX;
+      my = e.clientY;
+      
+      // Magnetic snapping to buttons
+      isSnapped = false;
+      const magEls = document.querySelectorAll('.btn-primary, .btn-ghost, .menu-toggle, .logo img');
+      for (let el of magEls) {
+        const rect = el.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        const dx = mx - cx;
+        const dy = my - cy;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        
+        if (dist < 36) { // Snapping threshold
+          targetX = cx;
+          targetY = cy;
+          isSnapped = true;
+          el.style.transform = `translate(${dx * 0.25}px, ${dy * 0.25}px) scale(1.05)`;
+          break;
+        }
+      }
+
+      const finalX = isSnapped ? targetX : mx;
+      const finalY = isSnapped ? targetY : my;
+
+      cursor.style.left = finalX + 'px';
+      cursor.style.top = finalY + 'px';
+      trail.style.left  = finalX + 'px';
+      trail.style.top  = finalY + 'px';
     }, { passive: true });
 
     // Expand on hover over interactive elements
@@ -384,6 +414,9 @@
         trail.style.width  = '36px';
         trail.style.height = '36px';
         trail.style.borderColor = 'rgba(255,255,255,0.15)';
+        if (el.classList.contains('btn-primary') || el.classList.contains('btn-ghost') || el.classList.contains('menu-toggle')) {
+          el.style.transform = '';
+        }
       });
     });
   }
@@ -541,10 +574,96 @@
   }
 
   /* ══════════════════════════════════════════════════════════
+     11. TECH PRELOADER — Loading percentage intro
+  ══════════════════════════════════════════════════════════ */
+  function initPreloader() {
+    if (prefersReduced) return;
+    
+    // Check session storage so it only runs once per session
+    if (sessionStorage.getItem('etp_loaded')) return;
+    sessionStorage.setItem('etp_loaded', 'true');
+
+    const loader = document.createElement('div');
+    loader.id = 'etpPreloader';
+    loader.style.cssText = `
+      position:fixed; inset:0; background:#050508; z-index:999999;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      transition: clip-path 0.75s cubic-bezier(0.77, 0, 0.175, 1);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      font-family: 'Space Grotesk', sans-serif;
+    `;
+    
+    loader.innerHTML = `
+      <div style="text-align:center; max-width:280px; width:100%; padding:20px; box-sizing:border-box;">
+        <div style="font-family:'IBM Plex Mono', monospace; font-size:0.75rem; color:var(--signal); letter-spacing:0.18em; text-transform:uppercase; margin-bottom:14px; text-shadow: 0 0 8px var(--signal-dim);">ETechProvider Core</div>
+        <div style="height:2px; background:rgba(255,255,255,0.06); border-radius:2px; overflow:hidden; position:relative; margin-bottom:16px;">
+          <div id="preloaderBar" style="position:absolute; left:0; top:0; bottom:0; width:0%; background:var(--signal); transition:width 0.08s linear; box-shadow: 0 0 6px var(--signal);"></div>
+        </div>
+        <div style="display:flex; justify-content:space-between; font-family:'IBM Plex Mono', monospace; font-size:0.68rem; color:var(--muted-2);">
+          <span style="opacity: 0.7;">INITIALIZING SYSTEMS...</span>
+          <span id="preloaderPercent">0%</span>
+        </div>
+      </div>
+    `;
+    
+    document.body.appendChild(loader);
+    
+    const bar = document.getElementById('preloaderBar');
+    const pct = document.getElementById('preloaderPercent');
+    
+    let count = 0;
+    const interval = setInterval(() => {
+      count += Math.floor(Math.random() * 8) + 4;
+      if (count >= 100) {
+        count = 100;
+        clearInterval(interval);
+        bar.style.width = '100%';
+        pct.textContent = '100%';
+        setTimeout(() => {
+          loader.style.clipPath = 'polygon(0 0, 100% 0, 100% 0, 0 0)'; // Slide open top
+          setTimeout(() => loader.remove(), 750);
+        }, 250);
+      } else {
+        bar.style.width = count + '%';
+        pct.textContent = count + '%';
+      }
+    }, 38);
+  }
+
+  /* ══════════════════════════════════════════════════════════
+     12. IMAGE PARALLAX — 3D sliding image effects on scroll
+  ══════════════════════════════════════════════════════════ */
+  function initImageParallax() {
+    if (prefersReduced || isMobile()) return;
+    
+    const imgWraps = document.querySelectorAll('.work-thumb');
+    imgWraps.forEach(wrap => {
+      const img = wrap.querySelector('img');
+      if (!img) return;
+      
+      wrap.style.overflow = 'hidden';
+      img.style.transform = 'scale(1.1)';
+      img.style.transition = 'transform 0.1s ease-out';
+      img.style.willChange = 'transform';
+      
+      window.addEventListener('scroll', () => {
+        const rect = wrap.getBoundingClientRect();
+        const winH = window.innerHeight;
+        if (rect.top < winH && rect.bottom > 0) {
+          const scrolledFraction = (rect.top + rect.height/2) / winH;
+          const yShift = (scrolledFraction - 0.5) * -32; // max 32px shift
+          img.style.transform = `scale(1.1) translateY(${yShift}px)`;
+        }
+      }, { passive: true });
+    });
+  }
+
+  /* ══════════════════════════════════════════════════════════
      INIT — run everything
   ══════════════════════════════════════════════════════════ */
   function init() {
-    fixMobileHero();       // Run first - mobile fixes
+    initPreloader();       // Run first - tech loading intro
+    fixMobileHero();       // Mobile fixes
     initHeroGlitch();      // 3D text effects
     initFloatingOrbs();    // Ambient depth orbs
     initParticles();       // Gravity particle field
@@ -554,6 +673,7 @@
     init3DTilt();          // Card perspective tilt
     initMagneticBtns();    // Magnetic cursor pull
     initCursorGlow();      // Custom cursor
+    initImageParallax();   // Image parallax scroll
   }
 
   if (document.readyState === 'loading') {
