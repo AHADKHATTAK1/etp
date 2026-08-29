@@ -4,12 +4,15 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
+# ChatGPT Search Bot
 User-agent: OAI-SearchBot
 Allow: /
 
+# OpenAI Main Crawler
 User-agent: GPTBot
 Allow: /
 
+# Custom ChatGPT User Queries
 User-agent: ChatGPT-User
 Allow: /
 
