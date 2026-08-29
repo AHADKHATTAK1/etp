@@ -356,6 +356,7 @@
         <div>
           <label for="selectScope">Project Scope Type</label>
           <select id="selectScope">
+            <option value="ai">AI Agent / Booking Assistant</option>
             <option value="webapp">Custom Web Application Rebuild</option>
             <option value="ecommerce">E-Commerce Transaction Platform</option>
             <option value="seo">High-Intent Technical SEO Campaign</option>
@@ -399,6 +400,12 @@
               <input type="checkbox" id="featSupport">
               <div class="box"></div>
               <div class="lbl">24/7 Cloud Support SLA</div>
+            </div>
+
+            <div class="check-card" id="cardAI">
+              <input type="checkbox" id="featAI">
+              <div class="box"></div>
+              <div class="lbl">AI &amp; Chatbot Assistant Integration</div>
             </div>
 
           </div>
@@ -458,14 +465,14 @@
     <div class="footer-top">
       <div style="max-width:280px;">
         <a href="index.html" class="logo"><img src="DiCQNU.jpg" alt="ETECHPROVIDER Logo"></a>
-        <p style="color:var(--muted); font-size:0.88rem; margin-top:14px; line-height:1.6;">A UK-based digital partner delivering software, SEO and social under one roof.</p>
+        <p style="color:var(--muted); font-size:0.88rem; margin-top:14px; line-height:1.6;">A UK-based digital partner delivering custom software, AI agents, SEO and social under one roof.</p>
       </div>
       <div class="footer-cols">
         <div class="footer-col">
           <h4>Capabilities</h4>
+          <a href="services.html#ai">AI &amp; Automation</a>
           <a href="services.html#dev">Software Dev</a>
           <a href="services.html#seo">SEO Growth</a>
-          <a href="services.html#smm">Social Media</a>
           <a href="services.html#ads">Paid Ads</a>
         </div>
         <div class="footer-col">
@@ -503,6 +510,7 @@
   const featPay = document.getElementById('featPay');
   const featAuth = document.getElementById('featAuth');
   const featSupport = document.getElementById('featSupport');
+  const featAI = document.getElementById('featAI');
 
   const estBudget = document.getElementById('estBudget');
   const estTimeline = document.getElementById('estTimeline');
@@ -520,7 +528,10 @@
 
     // 3. Scope type modifications
     const scope = selectScope.value;
-    if (scope === 'webapp') {
+    if (scope === 'ai') {
+      cost += 600;
+      days += 7;
+    } else if (scope === 'webapp') {
       cost += 800;
       days += 12;
     } else if (scope === 'ecommerce') {
@@ -550,6 +561,10 @@
     if (featSupport.checked) {
       cost += 300;
       days += 2;
+    }
+    if (featAI && featAI.checked) {
+      cost += 450;
+      days += 4;
     }
 
     // 5. Urgency factor
@@ -603,6 +618,7 @@
     if (featPay.checked) featuresList.push("Stripe Pay");
     if (featAuth.checked) featuresList.push("Auth/Users");
     if (featSupport.checked) featuresList.push("24/7 SLA");
+    if (featAI && featAI.checked) featuresList.push("AI Agent");
     
     const featuresStr = featuresList.length > 0 ? ` with features: [${featuresList.join(', ')}]` : '';
     

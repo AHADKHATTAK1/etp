@@ -187,9 +187,8 @@
   }
   @keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
-  /* Services Teaser Grid */
   .services-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px;
   }
   .svc-card {
     background: var(--ink-2); border: 1px solid var(--line); border-radius: var(--radius);
@@ -235,7 +234,39 @@
     .hero h1 { font-size: clamp(1.85rem, 7vw, 2.6rem); }
     .hero p.lead { font-size: 1rem; margin: 16px 0 24px; }
     .hero .cta-row { gap: 10px; }
-    .switchboard-container { display: none; } /* hide complex SVG widget on mobile */
+    .switchboard { display: none !important; }
+    .switchboard-container {
+      grid-template-columns: 1fr;
+      padding: 16px;
+    }
+    .mobile-switchboard-tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+      scrollbar-width: none;
+    }
+    .mobile-switchboard-tabs::-webkit-scrollbar { display: none; }
+    .sb-tab {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--muted);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .sb-tab.active {
+      background: var(--signal);
+      color: var(--ink);
+      border-color: var(--signal);
+      box-shadow: 0 0 10px var(--signal-dim);
+    }
     .services-grid { grid-template-columns: 1fr; }
     .testi-grid { grid-template-columns: 1fr; }
     .cta-banner { padding: 36px 20px; }
@@ -474,6 +505,17 @@
     </div>
 
     <div class="switchboard-container">
+      <div class="mobile-switchboard-tabs">
+        <button class="sb-tab active" data-id="core">Overview</button>
+        <button class="sb-tab" data-id="ai">AI Agents</button>
+        <button class="sb-tab" data-id="dev">SaaS Dev</button>
+        <button class="sb-tab" data-id="seo">SEO Growth</button>
+        <button class="sb-tab" data-id="erp">CRM / ERP</button>
+        <button class="sb-tab" data-id="smm">SMM</button>
+        <button class="sb-tab" data-id="ads">Paid Ads</button>
+        <button class="sb-tab" data-id="ux">UI/UX</button>
+        <button class="sb-tab" data-id="cloud">DevOps</button>
+      </div>
       <div class="switchboard">
         <svg viewBox="0 0 420 340" fill="none">
           <!-- connecting lines -->
@@ -483,6 +525,8 @@
           <path class="sb-line-active" d="M210 170 L 60 277" id="line-ads" />
           <path class="sb-line-active" d="M210 170 L 210 301" id="line-ux" />
           <path class="sb-line-active" d="M210 170 L 360 277" id="line-cloud" />
+          <path class="sb-line-active" d="M210 170 L 60 170" id="line-erp" />
+          <path class="sb-line-active" d="M210 170 L 360 170" id="line-ai" />
 
           <!-- outer nodes -->
           <rect class="sb-node" x="20" y="34" width="80" height="46" rx="8" id="node-dev" data-id="dev" />
@@ -502,6 +546,12 @@
 
           <rect class="sb-node" x="320" y="254" width="80" height="46" rx="8" id="node-cloud" data-id="cloud" />
           <text class="sb-label" x="360" y="277" text-anchor="middle">CLOUD</text>
+
+          <rect class="sb-node" x="20" y="147" width="80" height="46" rx="8" id="node-erp" data-id="erp" />
+          <text class="sb-label" x="60" y="170" text-anchor="middle">CRM</text>
+
+          <rect class="sb-node" x="320" y="147" width="80" height="46" rx="8" id="node-ai" data-id="ai" />
+          <text class="sb-label" x="360" y="170" text-anchor="middle">AI</text>
 
           <!-- core hub -->
           <circle class="sb-node-core" cx="210" cy="170" r="34" id="node-core" data-id="core" />
@@ -549,7 +599,7 @@
           <polyline points="8 6 2 12 8 18"></polyline>
         </svg>
         <h3>Software &amp; Web Apps</h3>
-        <p>Highly scalable, custom web apps and transactional platforms engineered using React and Node.js.</p>
+        <p>Highly scalable, custom web apps and SaaS platforms engineered using React, Next.js, and Node.js.</p>
         <a href="services.html#dev" style="color:var(--signal); font-size:0.85rem; font-weight:600;">Learn details →</a>
       </div>
 
@@ -559,7 +609,7 @@
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
         <h3>Technical SEO Growth</h3>
-        <p>Site architecture optimizations and organic content blueprints designed to rank for revenue intent.</p>
+        <p>Site architecture optimizations, Core Web Vitals fixes, and organic keyword blueprints for revenue intent.</p>
         <a href="services.html#seo" style="color:var(--signal); font-size:0.85rem; font-weight:600;">Learn details →</a>
       </div>
 
@@ -568,8 +618,19 @@
           <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
         </svg>
         <h3>Social &amp; Campaigns</h3>
-        <p>Vibrant social distribution, Meta tracking setups, and paid advertising optimized for conversions.</p>
+        <p>Vibrant social distribution, Meta/TikTok conversion tracking, and high-ROAS paid advertising funnels.</p>
         <a href="services.html#smm" style="color:var(--signal); font-size:0.85rem; font-weight:600;">Learn details →</a>
+      </div>
+
+      <div class="svc-card">
+        <svg class="svc-card-icon" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          <path d="M2 12h20"></path>
+        </svg>
+        <h3>AI Booking &amp; Agents</h3>
+        <p>Intelligent customer agents, automated workflows, custom booking assistants, and GPT integrations.</p>
+        <a href="services.html#ai" style="color:var(--signal); font-size:0.85rem; font-weight:600;">Learn details →</a>
       </div>
     </div>
   </div>
@@ -626,14 +687,14 @@
     <div class="footer-top">
       <div style="max-width:280px;">
         <a href="index.html" class="logo"><img src="DiCQNU.jpg" alt="ETECHPROVIDER Logo"></a>
-        <p style="color:var(--muted); font-size:0.88rem; margin-top:14px; line-height:1.6;">A UK-based digital partner delivering custom software, SEO and social under one roof.</p>
+        <p style="color:var(--muted); font-size:0.88rem; margin-top:14px; line-height:1.6;">A UK-based digital partner delivering custom software, AI agents, SEO and social under one roof.</p>
       </div>
       <div class="footer-cols">
         <div class="footer-col">
           <h4>Capabilities</h4>
+          <a href="services.html#ai">AI &amp; Automation</a>
           <a href="services.html#dev">Software Dev</a>
           <a href="services.html#seo">SEO Growth</a>
-          <a href="services.html#smm">Social Media</a>
           <a href="services.html#ads">Paid Ads</a>
         </div>
         <div class="footer-col">
@@ -667,7 +728,7 @@
   const switchboardData = {
     core: {
       title: "ETECHPROVIDER Digital Hub",
-      desc: "Click any node (DEV, SEO, SMM, ADS, UX, CLOUD) to view how we consolidate operations into a single accountable team, eliminating multi-agency friction.",
+      desc: "Click any node (DEV, SEO, SMM, ADS, UX, CLOUD, CRM, AI) to view how we consolidate operations into a single accountable team, eliminating multi-agency friction.",
       list: ["Consistent brand guidelines", "Accelerated delivery timelines", "Direct communications without accounts filters"],
       tech: ["Unified Strategy", "Shared Accountability"]
     },
@@ -706,6 +767,18 @@
       desc: "Continuous integration workflows, container orchestration services, and 24/7 support structures keeping builds running.",
       list: ["Highly secure cloud infrastructure management", "CI/CD automated deployment script architectures", "Dockerized containerization schemes"],
       tech: ["AWS", "Docker", "Kubernetes", "GitHub Actions", "Cloudflare"]
+    },
+    erp: {
+      title: "Enterprise Systems & Automations",
+      desc: "Operational automation pipelines, CRM system links (HubSpot, Salesforce), custom database syncs, and administrative staff dashboard portals.",
+      list: ["HubSpot & Salesforce automation APIs", "Custom operational CRM platforms builds", "Database sync scripts for legacy applications", "Internal staff admin workflow panels"],
+      tech: ["HubSpot API", "Salesforce API", "Node.js", "PostgreSQL", "React"]
+    },
+    ai: {
+      title: "AI Booking Assistants & Agents",
+      desc: "Custom intelligent agents, customer-facing conversational booking assistants, automated workflows, and Generative AI API integrations (OpenAI/Gemini).",
+      list: ["Custom conversational AI booking assistants", "OpenAI & Gemini API custom workflows", "Voice & Chat agent systems configuration", "RAG database automated setups"],
+      tech: ["OpenAI API", "Gemini Pro", "LangChain", "Vector DBs", "Python", "EmailJS"]
     }
   };
 
@@ -729,7 +802,8 @@
       });
 
       panel.querySelector('h3').textContent = data.title;
-      panel.querySelector('.sub').textContent = data.sub;
+      const subEl = panel.querySelector('.sub');
+      if (subEl && data.sub) subEl.textContent = data.sub;
       panel.querySelector('p').textContent = data.desc;
       panel.querySelector('ul').innerHTML = listHTML;
       panel.querySelector('div:last-child').innerHTML = techHTML;
@@ -738,15 +812,46 @@
     }, 150);
   }
 
-  // Bind click handlers to nodes
+  // Synchronise highlights between desktop nodes and mobile tabs
+  function setTabActive(key) {
+    document.querySelectorAll('.sb-tab').forEach(tab => {
+      if (tab.getAttribute('data-id') === key) {
+        tab.classList.add('active');
+        // Scroll the tab into view on mobile
+        tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      } else {
+        tab.classList.remove('active');
+      }
+    });
+  }
+
+  function setNodeActive(key) {
+    document.querySelectorAll('.sb-node, .sb-node-core').forEach(node => {
+      if (node.getAttribute('data-id') === key) {
+        node.classList.add('active');
+      } else {
+        node.classList.remove('active');
+      }
+    });
+  }
+
+  // Bind click handlers to desktop nodes
   document.querySelectorAll('.sb-node, .sb-node-core').forEach(node => {
-    node.addEventListener('click', (e) => {
+    node.addEventListener('click', () => {
       const key = node.getAttribute('data-id');
       updatePanel(key);
-      
-      // Highlight node by toggling active class
-      document.querySelectorAll('.sb-node, .sb-node-core').forEach(n => n.classList.remove('active'));
-      node.classList.add('active');
+      setNodeActive(key);
+      setTabActive(key);
+    });
+  });
+
+  // Bind click handlers to mobile tabs
+  document.querySelectorAll('.sb-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const key = tab.getAttribute('data-id');
+      updatePanel(key);
+      setNodeActive(key);
+      setTabActive(key);
     });
   });
 </script>

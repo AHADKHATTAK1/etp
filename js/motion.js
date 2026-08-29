@@ -492,7 +492,7 @@
           grid-template-columns: 1fr !important;
           gap: 28px !important;
         }
-        .switchboard-container { display: none !important; }
+        .switchboard { display: none !important; }
         .hero h1 { font-size: clamp(1.7rem, 8vw, 2.4rem) !important; }
         .hero p.lead { font-size: 0.97rem !important; margin: 14px 0 22px !important; }
         .hero .cta-row { flex-wrap: wrap !important; gap: 10px !important; }
