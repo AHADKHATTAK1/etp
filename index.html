@@ -24,25 +24,118 @@
 <meta name="twitter:title" content="ETechProvider | Web Development, SEO &amp; Digital Solutions UK">
 <meta name="twitter:description" content="UK-based digital agency delivering custom web development, SEO, social media marketing and paid advertising under one roof.">
 <meta name="twitter:image" content="https://etechprovider.co.uk/img/fintech-dashboard.png">
-<!-- Organization Schema -->
+<!-- Organization & ProfessionalService Graph Schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "ETechProvider",
-  "url": "https://etechprovider.co.uk/",
-  "logo": "https://etechprovider.co.uk/img/agency-office.png",
-  "description": "UK-based digital agency delivering custom web development, SEO, social media marketing and paid advertising for businesses.",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "275 Legrams Lane",
-    "addressLocality": "Bradford",
-    "addressRegion": "West Yorkshire",
-    "postalCode": "BD7 1EE",
-    "addressCountry": "GB"
-  },
-  "sameAs": [
-    "https://github.com/AHADKHATTAK1/etp"
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://etechprovider.co.uk/#organization",
+      "name": "ETECHPROVIDER",
+      "url": "https://etechprovider.co.uk",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://etechprovider.co.uk/#logo",
+        "url": "https://etechprovider.co.uk/img/agency-office.png",
+        "caption": "ETECHPROVIDER Logo"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+44 7521 866654",
+          "contactType": "customer service",
+          "email": "info@etechprovider.co.uk",
+          "areaServed": ["GB", "US"],
+          "availableLanguage": ["English", "Urdu"]
+        }
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/company/135216654/",
+        "https://www.instagram.com/etech_providers1620",
+        "https://twitter.com/etechprovider",
+        "https://github.com/AHADKHATTAK1/etp"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://etechprovider.co.uk/#service",
+      "name": "ETECHPROVIDER - Custom Software & Digital Growth Agency",
+      "url": "https://etechprovider.co.uk",
+      "logo": "https://etechprovider.co.uk/img/agency-office.png",
+      "image": "https://etechprovider.co.uk/img/fintech-dashboard.png",
+      "description": "ETechProvider is a UK-based full-service digital agency delivering web development, SEO, social media marketing, paid advertising, UI/UX design, cloud infrastructure, e-commerce, and AI integration to businesses in the UK and US.",
+      "telephone": "+44 7521 866654",
+      "email": "info@etechprovider.co.uk",
+      "priceRange": "££ / $$",
+      "currenciesAccepted": "GBP, USD",
+      "paymentAccepted": "Bank Transfer, Credit Card",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "275 Legrams Lane",
+        "addressLocality": "Bradford",
+        "addressRegion": "West Yorkshire",
+        "postalCode": "BD7 1EE",
+        "addressCountry": "GB"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 53.7950,
+        "longitude": -1.7590
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      ],
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "United Kingdom"
+        },
+        {
+          "@type": "Country",
+          "name": "United States"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Enterprise Digital & Software Solutions",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Custom SaaS & Web Application Development"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Technical SEO & Generative Engine Optimization (GEO)"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Full-Funnel B2B Performance Marketing & PPC"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Cloud Infrastructure, DevOps & Cybersecurity"
+            }
+          }
+        ]
+      }
+    }
   ]
 }
 </script>
@@ -282,30 +375,6 @@
   }
 </style>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "ETECHPROVIDER",
-  "image": "https://ahadkhattak1.github.io/etp/img/ecommerce-pos-store.png",
-  "url": "https://ahadkhattak1.github.io/etp/",
-  "telephone": "+447521866654",
-  "email": "info@etechprovider.co.uk",
-  "priceRange": "££",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "275 Legrams Lane",
-    "addressLocality": "Bradford",
-    "postalCode": "BD7 1EE",
-    "addressCountry": "GB"
-  },
-  "sameAs": [
-    "https://www.linkedin.com/company/135216654/",
-    "https://www.instagram.com/etech_providers1620?igsh=MWtlam0weWM2czR6MQ==",
-    "https://twitter.com/etechprovider"
-  ]
-}
-</script>
 
 <!-- Geo Meta Tags -->
 <meta name="geo.region" content="GB-BRD">
@@ -376,68 +445,7 @@
   ]
 }
 </script>
-<!-- LocalBusiness Schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "ETechProvider",
-  "url": "https://etechprovider.co.uk/",
-  "logo": "https://etechprovider.co.uk/img/agency-office.png",
-  "image": "https://etechprovider.co.uk/img/fintech-dashboard.png",
-  "description": "ETechProvider is a UK-based full-service digital agency delivering web development, SEO, social media marketing, paid advertising, UI/UX design, cloud infrastructure, e-commerce, and AI integration.",
-  "telephone": "+44 7521 866654",
-  "email": "info@etechprovider.co.uk",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "275 Legrams Lane",
-    "addressLocality": "Bradford",
-    "addressRegion": "West Yorkshire",
-    "postalCode": "BD7 1EE",
-    "addressCountry": "GB"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 53.7950,
-    "longitude": -1.7590
-  },
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-      "opens": "09:00",
-      "closes": "18:00"
-    }
-  ],
-  "priceRange": "££",
-  "currenciesAccepted": "GBP",
-  "paymentAccepted": "Cash, Credit Card, Bank Transfer",
-  "areaServed": {
-    "@type": "Country",
-    "name": "United Kingdom"
-  },
-  "sameAs": [
-    "https://github.com/AHADKHATTAK1/etp",
-    "https://www.linkedin.com/company/135216654/",
-    "https://www.instagram.com/etech_providers1620",
-    "https://twitter.com/etechprovider"
-  ],
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "ETechProvider Services",
-    "itemListElement": [
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Web Development"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "SEO"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Social Media Marketing"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Paid Advertising"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "UI/UX Design"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Cloud Infrastructure"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "E-Commerce Development"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI Integration"}}
-    ]
-  }
-}
-</script>
+
 <!-- BreadcrumbList Schema -->
 <script type="application/ld+json">
 {
