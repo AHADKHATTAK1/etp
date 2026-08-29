@@ -407,63 +407,76 @@ footer{border-top:1px solid var(--line); padding:52px 0 30px;}
   .sec-head h2{font-size:1.65rem;}
 
   /* ── Nav ── */
-  nav{padding:0 16px;min-height:60px;}
+  nav{padding:0 16px;min-height:60px;position:relative;}
 
   .nav-links{
-    position:fixed;
-    top:60px; right:0; bottom:0;
-    width:min(320px, 85vw);
-    background:rgba(6,6,10,0.99);
-    backdrop-filter:blur(24px);
-    -webkit-backdrop-filter:blur(24px);
+    position:absolute;
+    top:100%; left:0; right:0;
+    background:rgba(5,6,12,0.98);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
     flex-direction:column;
     align-items:stretch;
-    padding:20px 0;
+    padding:8px 0 16px;
     gap:0;
-    border-left:1px solid rgba(255,255,255,0.08);
-    transform:translateX(100%);
+    border-bottom:1px solid rgba(255,255,255,0.1);
+    border-top:1px solid rgba(255,255,255,0.06);
+    box-shadow:0 12px 40px rgba(0,0,0,0.5);
+    /* Dropdown animation */
+    transform:translateY(-8px);
     opacity:0;
     visibility:hidden;
-    transition:transform .32s cubic-bezier(.4,0,.2,1), opacity .28s, visibility .32s;
+    transition:transform .22s ease, opacity .2s ease, visibility .22s;
     z-index:199;
-    overflow-y:auto;
-    box-shadow:-20px 0 60px rgba(0,0,0,0.6);
+    overflow:hidden;
   }
-  .nav-links.open{transform:translateX(0);opacity:1;visibility:visible;}
+  .nav-links.open{
+    transform:translateY(0);
+    opacity:1;
+    visibility:visible;
+  }
 
   .nav-links a{
     font-size:1rem;
-    padding:16px 24px;
+    font-weight:500;
+    padding:14px 20px;
     width:100%;
-    border-bottom:1px solid rgba(255,255,255,0.06);
-    color:rgba(255,255,255,0.8);
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-  }
-  .nav-links a::after{content:'›';font-size:1.2rem;opacity:0.35;}
-  .nav-links a:hover{color:#fff;background:rgba(255,255,255,0.04);}
-  .nav-links a.active{color:var(--signal);border-left:2px solid var(--signal);padding-left:22px;}
-  .nav-links a.active::after{opacity:0;}
-  .nav-links a:last-child{border-bottom:none;}
-
-  /* Mobile CTA inside nav */
-  .nav-links::after{
-    content:'Get a Free Quote';
+    border-bottom:1px solid rgba(255,255,255,0.05);
+    color:rgba(255,255,255,0.75);
     display:block;
-    margin:20px 20px 0;
-    padding:14px;
+    letter-spacing:0.01em;
+  }
+  .nav-links a:last-child{border-bottom:none;}
+  .nav-links a:hover{
+    color:#fff;
+    background:rgba(255,255,255,0.05);
+    padding-left:26px;
+    transition:all .15s ease;
+  }
+  .nav-links a.active{
+    color:var(--signal);
+    background:rgba(255,255,255,0.03);
+    border-left:3px solid var(--signal);
+    padding-left:17px;
+  }
+
+  /* Mobile CTA button inside menu */
+  .nav-mobile-cta{
+    display:block !important;
+    margin:12px 16px 4px;
+    padding:13px;
     background:var(--signal);
     color:var(--ink);
     text-align:center;
     border-radius:10px;
     font-weight:700;
     font-size:0.95rem;
-    cursor:pointer;
+    text-decoration:none;
   }
 
   .menu-toggle{display:flex;}
   .nav-cta{display:none !important;}
+  .nav-links::after{display:none !important;}
 
   /* ── Grids → single column ── */
   .services-grid, .work-grid, .testi-grid, .price-grid,
