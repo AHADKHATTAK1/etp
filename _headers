@@ -1,0 +1,56 @@
+/*
+ * ETechProvider — Cloudflare Pages Security Headers
+ * Protects against XSS, clickjacking, MIME sniffing, data injection,
+ * information leakage, and insecure transport.
+ */
+
+/*
+  Apply security headers to all routes
+*/
+https://etechprovider.co.uk/*
+  # ── Transport Security ──────────────────────────────────────────
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+  # ── Clickjacking Protection ─────────────────────────────────────
+  X-Frame-Options: SAMEORIGIN
+
+  # ── MIME Sniffing ───────────────────────────────────────────────
+  X-Content-Type-Options: nosniff
+
+  # ── XSS Filter (legacy browsers) ────────────────────────────────
+  X-XSS-Protection: 1; mode=block
+
+  # ── Referrer Policy ─────────────────────────────────────────────
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # ── Permissions Policy (disable unused browser APIs) ────────────
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()
+
+  # ── Content Security Policy ─────────────────────────────────────
+  # Allows: own assets, Google Fonts, EmailJS CDN, Google Analytics/Tag Manager
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.emailjs.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com https://etechprovider.co.uk https://ahadkhattak1.github.io; connect-src 'self' https://api.emailjs.com https://www.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://api.emailjs.com
+
+  # ── Hide Server Information ──────────────────────────────────────
+  Server: ETechProvider
+  X-Powered-By: Velocity
+
+  # ── Cache Control for HTML Pages ────────────────────────────────
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Static assets — aggressive caching
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Sensitive files — block direct access
+/js/config.js
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store, no-cache, must-revalidate
+
+/.env
+  X-Robots-Tag: noindex, nofollow

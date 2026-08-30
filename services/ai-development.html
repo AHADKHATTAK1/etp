@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Development UK | Custom AI Agents, Chatbots & Automation — ETechProvider</title>
+    <meta name="description" content="AI development agency UK specializing in custom AI agents, OpenAI/Gemini integrations, workflow automation, and secure corporate AI solutions.">
+    <link rel="canonical" href="https://etechprovider.co.uk/services/ai-development">
+    <meta property="og:title" content="AI Development UK | Custom AI Agents, Chatbots & Automation — ETechProvider">
+    <meta property="og:description" content="AI that works inside your business. Transform operations with custom AI agents and workflow automations.">
+    <meta property="og:url" content="https://etechprovider.co.uk/services/ai-development">
+    <meta property="og:type" content="website">
+    
+    <link rel="stylesheet" href="../css/style.css">
+    
+    <style>
+        .hero { padding: 120px 0 80px; text-align: center; }
+        .hero h1 { font-size: 3rem; margin-bottom: 24px; color: var(--ink); }
+        .hero p { font-size: 1.25rem; color: var(--ink-2); max-width: 800px; margin: 0 auto 32px; }
+        
+        .process-steps { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 48px; justify-content: center; }
+        .step { flex: 1; min-width: 150px; background: var(--paper); padding: 24px 16px; border-radius: var(--radius); border: 1px solid var(--line); text-align: center; }
+        .step-num { width: 40px; height: 40px; background: var(--signal); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: bold; margin: 0 auto 12px; }
+        
+        .tech-stack { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin-top: 24px; }
+        .tech-badge { background: var(--line); padding: 8px 16px; border-radius: 100px; font-weight: 500; font-size: 0.9rem; }
+        
+        .case-study { background: var(--ink); color: white; padding: 64px; border-radius: var(--radius); margin-top: 64px; }
+        .proof-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 32px; }
+        .proof-card { background: rgba(255,255,255,0.1); padding: 32px; border-radius: var(--radius); }
+        .proof-metric { font-size: 2.5rem; color: var(--signal); font-weight: bold; margin-bottom: 8px; }
+        
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-top: 48px; }
+        .price-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 40px; text-align: center; }
+        .price { font-size: 2.5rem; font-weight: bold; margin: 16px 0; color: var(--ink); }
+        
+        .faq-section { max-width: 800px; margin: 64px auto; }
+        details { margin-bottom: 16px; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+        summary { padding: 24px; font-weight: 600; cursor: pointer; background: var(--paper); display: flex; justify-content: space-between; align-items: center; }
+        summary::after { content: '+'; font-size: 1.5rem; }
+        details[open] summary::after { content: '-'; }
+        .faq-content { padding: 24px; border-top: 1px solid var(--line); background: var(--paper); color: var(--ink-2); }
+        
+        .cta-section { text-align: center; padding: 80px 0; background: var(--paper); border-radius: var(--radius); margin: 64px 0; }
+        
+        @media (max-width: 768px) {
+            .proof-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://etechprovider.co.uk/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://etechprovider.co.uk/services/"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "AI Development"
+      }]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What exactly is a custom AI agent?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Unlike basic chatbots, a custom AI agent is powered by large language models (like GPT-4) connected directly to your business databases. It understands your context and can execute real tasks autonomously."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will AI replace my staff?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, our AI solutions are designed to augment your team, not replace them. We automate repetitive administrative tasks so your staff can focus on high-value, creative, and strategic work."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is our company data kept secure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We build enterprise-grade pipelines using secure vector databases (like Pinecone) and API configurations with zero-data-retention policies from providers like OpenAI, meaning your data is never used to train public models."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take to deploy an AI solution?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Simple AI integrations can be deployed in 2-3 weeks. Complex, custom-trained AI agents deeply integrated into your ERP or CRM typically take 6-10 weeks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can the AI integrate with our existing CRM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, we specialize in building intelligent middleware using Node.js and Python that securely connects modern LLMs with legacy systems, CRMs (HubSpot, Salesforce), and ERP platforms."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="/" class="logo"><img src="../DiCQNU.jpg" alt="ETechProvider Logo"></a>
+    <div class="nav-links" id="navLinks">
+      <a href="/">Home</a>
+      <a href="../services">Services</a>
+      <a href="../about">About</a>
+      <a href="../work">Work</a>
+      <a href="../pricing">Pricing</a>
+      <a href="../pricing#book-session" style="color:var(--signal);font-weight:600;">Book a Session</a>
+      <a href="../payments">Payments</a>
+      <a href="../contact">Contact</a>
+    </div>
+    <div class="nav-right">
+      <a href="../contact" class="btn btn-primary nav-cta">Get a quote</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      <a href="../contact" class="nav-mobile-cta">&#128172; Get a Free Quote</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+    <section class="section-pad hero">
+        <div class="wrap">
+            <h1>AI that works inside your business — not just a chatbot widget</h1>
+            <p>Generic AI tools and off-the-shelf chatbots frustrate customers. Real competitive advantage comes from bespoke AI systems trained on YOUR business data, pricing structures, and internal processes.</p>
+            <a href="#consultation" class="btn btn-primary">Book a Free AI Consultation</a>
+        </div>
+    </section>
+
+    <section class="section-pad">
+        <div class="wrap">
+            <h2 class="sec-head text-center">Intelligent Automation & AI Development UK</h2>
+            <p class="text-center" style="max-width:800px; margin:0 auto; color:var(--ink-2);">We design and deploy custom AI agents, OpenAI/Gemini API integrations, automated booking systems, LLM-powered workflows, CRM/ERP AI connectors, and scalable AI content pipelines tailored to your operations.</p>
+            
+            <div class="process-steps">
+                <div class="step"><div class="step-num">1</div><div style="font-weight:600">Requirements</div></div>
+                <div class="step"><div class="step-num">2</div><div style="font-weight:600">Data Audit</div></div>
+                <div class="step"><div class="step-num">3</div><div style="font-weight:600">Model Selection</div></div>
+                <div class="step"><div class="step-num">4</div><div style="font-weight:600">Build</div></div>
+                <div class="step"><div class="step-num">5</div><div style="font-weight:600">Test</div></div>
+                <div class="step"><div class="step-num">6</div><div style="font-weight:600">Deploy</div></div>
+                <div class="step"><div class="step-num">7</div><div style="font-weight:600">Monitor</div></div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section-pad">
+        <div class="wrap text-center">
+            <h2 class="sec-head">Enterprise AI Tech Stack</h2>
+            <div class="tech-stack">
+                <span class="tech-badge">OpenAI GPT-4o</span>
+                <span class="tech-badge">Google Gemini</span>
+                <span class="tech-badge">LangChain</span>
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">FastAPI</span>
+                <span class="tech-badge">Pinecone</span>
+                <span class="tech-badge">Supabase</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-pad">
+        <div class="wrap">
+            <div class="case-study">
+                <h2 class="text-center">Real ROI Through Custom AI</h2>
+                <div class="proof-grid">
+                    <div class="proof-card">
+                        <div class="proof-metric">60% Reduction</div>
+                        <h3>Healthcare Clinic Automation</h3>
+                        <p>We built an intelligent AI booking assistant for a regional clinic that understands real-time doctor availability and handles complex triage logic via phone and chat, drastically reducing administrative overhead.</p>
+                    </div>
+                    <div class="proof-card">
+                        <div class="proof-metric">24/7 Intake</div>
+                        <h3>Law Firm Client Onboarding</h3>
+                        <p>Implemented a secure, custom AI agent trained on the firm's specific legal FAQs and qualification criteria, successfully automating 80% of initial client intakes and document collection.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-pad">
+        <div class="wrap">
+            <h2 class="sec-head text-center">AI Investment Packages</h2>
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>AI Integration</h3>
+                    <div class="price">From £1,299</div>
+                    <p>API integrations to supercharge your existing software tools.</p>
+                </div>
+                <div class="price-card" style="border-color:var(--signal); box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    <h3>Custom AI Agent</h3>
+                    <div class="price">From £2,499</div>
+                    <p>Bespoke assistant trained on your specific business knowledge base.</p>
+                </div>
+                <div class="price-card">
+                    <h3>Enterprise Workflow</h3>
+                    <div class="price">From £5,999</div>
+                    <p>End-to-end operational automation with deep CRM/ERP connections.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-pad faq-section">
+        <h2 class="sec-head text-center">AI Development FAQs</h2>
+        
+        <details>
+            <summary>What is a custom AI agent?</summary>
+            <div class="faq-content">Unlike basic chatbots, a custom AI agent is powered by large language models (like GPT-4) connected directly to your business databases. It understands your context and can execute real tasks autonomously.</div>
+        </details>
+        <details>
+            <summary>Can AI replace my staff?</summary>
+            <div class="faq-content">No, our AI solutions are designed to augment your team, not replace them. We automate repetitive administrative tasks so your staff can focus on high-value, creative, and strategic work.</div>
+        </details>
+        <details>
+            <summary>How is data kept secure?</summary>
+            <div class="faq-content">We build enterprise-grade pipelines using secure vector databases and API configurations with zero-data-retention policies, meaning your data is never used to train public models.</div>
+        </details>
+        <details>
+            <summary>How long does a build take?</summary>
+            <div class="faq-content">Simple AI integrations can be deployed in 2-3 weeks. Complex, custom-trained AI agents deeply integrated into your ERP or CRM typically take 6-10 weeks.</div>
+        </details>
+        <details>
+            <summary>Can it integrate with my CRM?</summary>
+            <div class="faq-content">Yes, we specialize in building intelligent middleware that securely connects modern LLMs with legacy systems, CRMs, and ERP platforms.</div>
+        </details>
+    </section>
+
+    <section class="wrap">
+        <div class="cta-section" id="consultation">
+            <h2>Ready to weaponize AI for your business?</h2>
+            <p style="margin-bottom:32px; color:var(--ink-2);">Stop guessing and start automating. Book a session to discover your AI opportunities.</p>
+            <a href="../contact" class="btn btn-primary">Book a Free AI Consultation</a>
+        </div>
+    </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="logo"><img src="../DiCQNU.jpg" alt="ETechProvider"></a>
+        <p>Custom software, SEO &amp; digital growth — built and run under one roof, UK &amp; USA.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <div class="col-head">Services</div>
+          <a href="../services">All Services</a>
+          <a href="../services/web-development">Web Development</a>
+          <a href="../services/seo">SEO</a>
+          <a href="../services/ai-development">AI Development</a>
+          <a href="../services/shopify-development">Shopify</a>
+        </div>
+        <div class="footer-col">
+          <div class="col-head">Company</div>
+          <a href="../about">About Us</a>
+          <a href="../work">Our Work</a>
+          <a href="../pricing">Pricing</a>
+          <a href="../contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <div class="col-head">Contact</div>
+          <a href="mailto:info@etechprovider.co.uk">info@etechprovider.co.uk</a>
+          <a href="tel:+447521866654">+44 7521 866654</a>
+          <span>275 Legrams Lane, Bradford BD7 1EE, UK</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 ETECHPROVIDER. All rights reserved.</span>
+      <span>Registered in England &amp; Wales · United Kingdom</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/config.js"></script>
+<script src="../js/motion.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

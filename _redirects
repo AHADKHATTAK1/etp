@@ -1,0 +1,23 @@
+# ETechProvider — Cloudflare Pages Redirects
+# Forces HTTPS and handles clean URL routing
+
+# Force www → non-www canonical
+https://www.etechprovider.co.uk/* https://etechprovider.co.uk/:splat 301
+
+# Clean URL rewrites (strip .html extension)
+/index.html        /          301
+/about.html        /about     301
+/services.html     /services  301
+/pricing.html      /pricing   301
+/work.html         /work      301
+/contact.html      /contact   301
+/payments.html     /payments  301
+
+# Service sub-pages clean URLs
+/services/seo.html              /services/seo              301
+/services/web-development.html  /services/web-development  301
+/services/ai-development.html   /services/ai-development   301
+/services/shopify-development.html /services/shopify-development 301
+
+# SPA-style fallback — serve 404 for unknown pages
+/*  /404.html  404
