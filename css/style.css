@@ -555,3 +555,56 @@ footer{border-top:1px solid var(--line); padding:52px 0 30px;}
     padding: 24px 16px !important;
   }
 }
+
+/* ── Industry Badge ── */
+.industry-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 40px;
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+  cursor: default;
+}
+.industry-badge:hover {
+  border-color: rgba(255,255,255,0.3);
+  color: var(--paper);
+  background: rgba(255,255,255,0.07);
+}
+
+/* ── Stats Bar Items ── */
+.stat-item {
+  text-align: center;
+  padding: 24px 16px;
+}
+.stat-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 800;
+  color: var(--paper);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 8px;
+  line-height: 1.5;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* ── Hero trust row mobile ── */
+@media (max-width: 600px) {
+  .hero-trust-row {
+    flex-direction: column !important;
+    gap: 12px !important;
+    align-items: flex-start !important;
+  }
+}
+
