@@ -608,3 +608,157 @@ footer{border-top:1px solid var(--line); padding:52px 0 30px;}
   }
 }
 
+/* ══════════════════════════════════════════
+   MOBILE IMAGE & CONTENT FIXES
+══════════════════════════════════════════ */
+
+/* All images — never overflow container */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Work thumb images on mobile */
+@media (max-width: 768px) {
+  .work-thumb {
+    height: 200px !important;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .work-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Hero section padding on mobile */
+  .hero {
+    padding: 56px 0 40px;
+  }
+  .hero h1 {
+    font-size: clamp(1.9rem, 6vw, 2.8rem) !important;
+    line-height: 1.1 !important;
+  }
+  .hero .lead {
+    font-size: 0.96rem !important;
+    margin-top: 14px !important;
+  }
+  .hero .cta-row {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  .hero .cta-row .btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Service cards on mobile */
+  .svc-card {
+    padding: 22px 18px !important;
+  }
+  .svc-card-icon {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  /* Stats numbers on mobile */
+  .stat-num {
+    font-size: 2.4rem !important;
+  }
+  .stats-bar {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0 !important;
+  }
+
+  /* Contact grid — stack on mobile */
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .map-wrapper {
+    display: none; /* hide SVG map on mobile — saves space */
+  }
+
+  /* Industry badges wrap nicely */
+  .industry-badge {
+    font-size: 0.76rem !important;
+    padding: 6px 12px !important;
+  }
+
+  /* About page image banner */
+  .about-img-banner {
+    height: 220px !important;
+  }
+
+  /* Work case study cards */
+  .work-card {
+    flex-direction: column !important;
+  }
+
+  /* Testi cards */
+  .testi-card {
+    padding: 20px !important;
+  }
+
+  /* Section headings */
+  .sec-head h2 {
+    font-size: clamp(1.5rem, 5vw, 2rem) !important;
+  }
+
+  /* CTA banner */
+  .cta-banner {
+    padding: 36px 20px !important;
+    text-align: center;
+  }
+  .cta-banner h2 {
+    font-size: clamp(1.4rem, 5vw, 2rem) !important;
+  }
+  .cta-banner .cta-row {
+    flex-direction: column !important;
+    gap: 10px !important;
+    align-items: center !important;
+  }
+  .cta-banner .cta-row .btn {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+
+  /* Pricing cards */
+  .price-card {
+    padding: 28px 20px !important;
+  }
+
+  /* Footer columns on mobile */
+  .footer-col {
+    min-width: unset !important;
+  }
+
+  /* Social proof bar on mobile — stack */
+  .proof-bar-inner {
+    flex-direction: column !important;
+    gap: 20px !important;
+    align-items: center !important;
+    text-align: center;
+  }
+  .proof-bar-divider {
+    display: none !important;
+  }
+}
+
+/* Extra small — 380px */
+@media (max-width: 380px) {
+  .stats-bar {
+    grid-template-columns: 1fr !important;
+  }
+  .hero h1 {
+    font-size: 1.7rem !important;
+  }
+  .btn {
+    font-size: 0.88rem !important;
+    padding: 11px 16px !important;
+  }
+}
+
