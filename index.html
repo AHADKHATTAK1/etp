@@ -149,6 +149,7 @@
   "description": "Professional web development, SEO and digital solutions for modern UK businesses."
 }
 </script>
+<script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.3/build/spline-viewer.js"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -319,8 +320,8 @@
   @media (max-width: 980px) {
     .hero .wrap { grid-template-columns: 1fr; }
     .switchboard-container { grid-template-columns: 1fr; }
-    .services-grid { grid-template-columns: repeat(2,1fr); }
-    .testi-grid { grid-template-columns: repeat(2,1fr); }
+    .switchboard { height: 350px !important; margin-bottom: 20px; }
+    .switchboard-container { grid-template-columns: repeat(2,1fr); }
   }
   @media (max-width: 680px) {
     .hero { padding: 60px 0 44px; }
@@ -556,47 +557,9 @@
         <button class="sb-tab" data-id="ux">UI/UX</button>
         <button class="sb-tab" data-id="cloud">DevOps</button>
       </div>
-      <div class="switchboard">
-        <svg viewBox="0 0 420 340" fill="none">
-          <!-- connecting lines -->
-          <path class="sb-line-active" d="M210 170 L 60 57" id="line-dev" />
-          <path class="sb-line-active" d="M210 170 L 210 31" id="line-seo" />
-          <path class="sb-line-active" d="M210 170 L 360 57" id="line-smm" />
-          <path class="sb-line-active" d="M210 170 L 60 277" id="line-ads" />
-          <path class="sb-line-active" d="M210 170 L 210 301" id="line-ux" />
-          <path class="sb-line-active" d="M210 170 L 360 277" id="line-cloud" />
-          <path class="sb-line-active" d="M210 170 L 60 170" id="line-erp" />
-          <path class="sb-line-active" d="M210 170 L 360 170" id="line-ai" />
-
-          <!-- outer nodes -->
-          <rect class="sb-node" x="20" y="34" width="80" height="46" rx="8" id="node-dev" data-id="dev" />
-          <text class="sb-label" x="60" y="57" text-anchor="middle">DEV</text>
-
-          <rect class="sb-node" x="170" y="8" width="80" height="46" rx="8" id="node-seo" data-id="seo" />
-          <text class="sb-label" x="210" y="31" text-anchor="middle">SEO</text>
-
-          <rect class="sb-node" x="320" y="34" width="80" height="46" rx="8" id="node-smm" data-id="smm" />
-          <text class="sb-label" x="360" y="57" text-anchor="middle">SMM</text>
-
-          <rect class="sb-node" x="20" y="254" width="80" height="46" rx="8" id="node-ads" data-id="ads" />
-          <text class="sb-label" x="60" y="277" text-anchor="middle">ADS</text>
-
-          <rect class="sb-node" x="170" y="278" width="80" height="46" rx="8" id="node-ux" data-id="ux" />
-          <text class="sb-label" x="210" y="301" text-anchor="middle">UX</text>
-
-          <rect class="sb-node" x="320" y="254" width="80" height="46" rx="8" id="node-cloud" data-id="cloud" />
-          <text class="sb-label" x="360" y="277" text-anchor="middle">CLOUD</text>
-
-          <rect class="sb-node" x="20" y="147" width="80" height="46" rx="8" id="node-erp" data-id="erp" />
-          <text class="sb-label" x="60" y="170" text-anchor="middle">CRM</text>
-
-          <rect class="sb-node" x="320" y="147" width="80" height="46" rx="8" id="node-ai" data-id="ai" />
-          <text class="sb-label" x="360" y="170" text-anchor="middle">AI</text>
-
-          <!-- core hub -->
-          <circle class="sb-node-core" cx="210" cy="170" r="34" id="node-core" data-id="core" />
-          <text class="sb-label-core" x="210" y="170" text-anchor="middle">ETP</text>
-        </svg>
+      <div class="switchboard" style="border-radius: 12px; overflow: hidden; height: 100%; min-height: 400px; position: relative;">
+        <!-- Premium 3D AI Agent Model -->
+        <spline-viewer url="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode"></spline-viewer>
       </div>
 
       <div class="hero-panel" id="switchboard-detail">
