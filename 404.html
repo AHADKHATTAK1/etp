@@ -1,25 +1,272 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Redirecting...</title>
-  <script type="text/javascript">
-    var l = window.location;
-    var path = l.pathname;
-    var pages = ['services', 'about', 'work', 'pricing', 'payments', 'contact'];
-    var segment = path.split('/').pop();
-    
-    if (pages.includes(segment)) {
-      var newPath = path + '.html' + l.search + l.hash;
-      l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + newPath);
-    } else {
-      var segments = path.split('/');
-      segments.pop(); // Remove the trailing wrong segment
-      var homePath = segments.join('/') + '/index.html';
-      l.replace(l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + homePath);
-    }
-  </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Not Found — ETECHPROVIDER UK</title>
+<meta name="robots" content="noindex, follow">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  /* ── 404 Page Styles ── */
+  .page-404 {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glow-404 {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .error-code {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(7rem, 20vw, 14rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0;
+  }
+
+  .error-mono {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    color: var(--signal);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .error-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    font-weight: 700;
+    color: var(--paper);
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .error-desc {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 460px;
+    line-height: 1.7;
+    margin: 0 auto 36px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .error-btns {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 60px;
+  }
+
+  .quick-links {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid var(--line);
+    padding-top: 36px;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .quick-links p {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    color: var(--muted-2);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .quick-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .quick-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    font-size: 0.84rem;
+    color: var(--muted);
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+  .quick-link:hover {
+    border-color: rgba(255,255,255,0.3);
+    color: var(--paper);
+    background: rgba(255,255,255,0.07);
+  }
+
+  .countdown-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: var(--signal);
+    animation: countdown 10s linear forwards;
+    z-index: 999;
+  }
+
+  @keyframes countdown {
+    from { width: 100%; }
+    to { width: 0%; }
+  }
+
+  .redirect-note {
+    font-size: 0.78rem;
+    color: var(--muted-2);
+    font-family: 'IBM Plex Mono', monospace;
+    margin-top: -40px;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Nav logo only */
+  .nav-404 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-404 .logo img {
+    height: 32px;
+    width: auto;
+  }
+  .nav-404 .back-home {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    transition: color 0.2s;
+  }
+  .nav-404 .back-home:hover { color: var(--paper); }
+
+  @media (max-width: 480px) {
+    .nav-404 { padding: 16px 20px; }
+    .error-btns { flex-direction: column; align-items: center; }
+    .error-btns .btn { width: 100%; max-width: 280px; justify-content: center; }
+  }
+</style>
 </head>
+
 <body>
+
+<!-- Progress bar auto-redirect -->
+<div class="countdown-bar" id="countdownBar"></div>
+
+<!-- Simple top nav -->
+<nav class="nav-404">
+  <a href="/" class="logo"><img src="/DiCQNU.jpg" alt="ETechProvider Logo"></a>
+  <a href="/" class="back-home">← Back to Home</a>
+</nav>
+
+<!-- 404 Content -->
+<div class="page-404">
+  <div class="glow-404"></div>
+
+  <div class="error-code">404</div>
+  <div class="error-mono">Page not found</div>
+
+  <h1 class="error-title">This page doesn't exist — yet.</h1>
+  <p class="error-desc">
+    The URL you followed might be broken, moved, or never existed.
+    Don't worry — everything you need is one click away.
+  </p>
+
+  <div class="error-btns">
+    <a href="/" class="btn btn-primary">Go to Homepage →</a>
+    <a href="/contact" class="btn btn-ghost">Contact Us</a>
+  </div>
+
+  <p class="redirect-note" id="redirectNote">Redirecting to homepage in <span id="timer">10</span>s...</p>
+
+  <div class="quick-links">
+    <p>Or go directly to</p>
+    <div class="quick-grid">
+      <a href="/services" class="quick-link">⚙️ Services</a>
+      <a href="/services/seo" class="quick-link">🔍 SEO</a>
+      <a href="/services/web-development" class="quick-link">💻 Web Dev</a>
+      <a href="/services/ai-development" class="quick-link">🤖 AI Dev</a>
+      <a href="/services/shopify-development" class="quick-link">🛒 Shopify</a>
+      <a href="/services/google-ads" class="quick-link">📢 Google Ads</a>
+      <a href="/services/digital-marketing" class="quick-link">📱 Digital Marketing</a>
+      <a href="/pricing" class="quick-link">💰 Pricing</a>
+      <a href="/work" class="quick-link">🎨 Our Work</a>
+      <a href="/about" class="quick-link">👥 About Us</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Countdown and auto-redirect to homepage after 10s
+  let seconds = 10;
+  const timerEl = document.getElementById('timer');
+  const noteEl  = document.getElementById('redirectNote');
+
+  const interval = setInterval(() => {
+    seconds--;
+    if (timerEl) timerEl.textContent = seconds;
+    if (seconds <= 0) {
+      clearInterval(interval);
+      window.location.href = '/';
+    }
+  }, 1000);
+
+  // Cancel redirect on user interaction
+  document.addEventListener('click', () => {
+    clearInterval(interval);
+    const bar = document.getElementById('countdownBar');
+    if (bar) bar.style.display = 'none';
+    if (noteEl) noteEl.style.display = 'none';
+  });
+</script>
+
 </body>
 </html>
