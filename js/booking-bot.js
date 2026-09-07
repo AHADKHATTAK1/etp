@@ -100,14 +100,14 @@
       #etp-bot-fab{
         position:fixed; bottom:28px; right:28px; z-index:2147483647;
         width:60px; height:60px; border-radius:50%;
-        background:linear-gradient(135deg,#fff 0%,#c8c8c8 100%);
-        border:none; cursor:pointer; box-shadow:0 8px 30px rgba(0,0,0,.55);
+        background: url('/img/ai-agent.jpg') center/cover no-repeat;
+        border: 2px solid rgba(255,255,255,0.15); cursor:pointer; box-shadow:0 8px 30px rgba(0,0,0,.55), 0 0 15px rgba(99,102,241,0.4);
         display:flex; align-items:center; justify-content:center;
         transition:transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s;
         animation: botPulse 3s ease-in-out infinite;
       }
       #etp-bot-fab:hover{ transform:scale(1.12); box-shadow:0 12px 40px rgba(0,0,0,.7); }
-      #etp-bot-fab svg{ width:28px; height:28px; }
+
       @keyframes botPulse{
         0%,100%{box-shadow:0 8px 30px rgba(0,0,0,.55), 0 0 0 0 rgba(255,255,255,.35);}
         50%{box-shadow:0 8px 30px rgba(0,0,0,.55), 0 0 0 10px rgba(255,255,255,0);}
@@ -130,7 +130,7 @@
         backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
         border:1px solid rgba(255,255,255,0.1);
         border-radius:20px;
-        box-shadow:0 24px 60px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.04);
+        box-shadow:0 24px 60px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.04), 0 0 30px rgba(99,102,241,0.15);
         display:flex; flex-direction:column;
         overflow:hidden;
         transform:translateY(20px) scale(0.97);
@@ -154,7 +154,7 @@
       }
       .etp-bot-avatar{
         width:40px; height:40px; border-radius:50%;
-        background:linear-gradient(135deg,#fff,#888);
+        background: url('/img/ai-agent.jpg') center/cover no-repeat;
         display:flex; align-items:center; justify-content:center;
         font-size:18px; flex-shrink:0;
         box-shadow:0 0 0 3px rgba(255,255,255,.1);
@@ -314,12 +314,6 @@
 
     /* FAB button */
     const fab = el('button', '', `
-      <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-        <circle cx="9" cy="10" r=".5" fill="#000"/>
-        <circle cx="12" cy="10" r=".5" fill="#000"/>
-        <circle cx="15" cy="10" r=".5" fill="#000"/>
-      </svg>
       <span id="etp-bot-badge">1</span>
     `);
     fab.id = 'etp-bot-fab';
@@ -333,7 +327,7 @@
     panel.setAttribute('aria-label', 'AI Booking Assistant');
     panel.innerHTML = `
       <div class="etp-bot-header">
-        <div class="etp-bot-avatar">🤖</div>
+        <div class="etp-bot-avatar"></div>
         <div>
           <div class="etp-bot-name">Aria · ETechProvider</div>
           <div class="etp-bot-status">Online · Typically replies instantly</div>
