@@ -95,4 +95,23 @@ document.addEventListener('DOMContentLoaded', () => {
       headerEl.classList.toggle('scrolled', window.scrollY > 40);
     }, { passive: true });
   }
+
+  // ── Live Visitor Count (Social Proof) ───────────────────────
+  const liveCountStr = localStorage.getItem('etp_live_visitors');
+  let currentVisitors = liveCountStr ? parseInt(liveCountStr, 10) : Math.floor(Math.random() * (22 - 15 + 1)) + 15;
+  if (isNaN(currentVisitors) || currentVisitors < 12 || currentVisitors > 25) currentVisitors = 17;
+
+  const visitorWidget = document.createElement('div');
+  visitorWidget.id = 'live-visitor-count';
+  visitorWidget.innerHTML = `<span class="live-dot"></span> <b>${currentVisitors}</b> people viewing this page`;
+  document.body.appendChild(visitorWidget);
+
+  setInterval(() => {
+    const change = Math.floor(Math.random() * 4) - 1; // -1 to +2
+    currentVisitors += change;
+    if (currentVisitors < 15) currentVisitors = 15;
+    if (currentVisitors > 23) currentVisitors = 23;
+    localStorage.setItem('etp_live_visitors', currentVisitors);
+    visitorWidget.innerHTML = `<span class="live-dot"></span> <b>${currentVisitors}</b> people viewing this page`;
+  }, 12000);
 });
