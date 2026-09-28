@@ -97,9 +97,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ── Live Visitor Count (Social Proof) ───────────────────────
-  const liveCountStr = localStorage.getItem('etp_live_visitors');
-  let currentVisitors = liveCountStr ? parseInt(liveCountStr, 10) : Math.floor(Math.random() * (22 - 15 + 1)) + 15;
-  if (isNaN(currentVisitors) || currentVisitors < 12 || currentVisitors > 25) currentVisitors = 17;
+  // ── Live Visitor Count (Social Proof) ───────────────────────
+  let currentVisitors = 17;
+  try {
+    const liveCountStr = localStorage.getItem('etp_live_visitors');
+    currentVisitors = liveCountStr ? parseInt(liveCountStr, 10) : Math.floor(Math.random() * (22 - 15 + 1)) + 15;
+    if (isNaN(currentVisitors) || currentVisitors < 12 || currentVisitors > 25) currentVisitors = 17;
+  } catch (e) {
+    currentVisitors = Math.floor(Math.random() * (22 - 15 + 1)) + 15;
+  }
 
   const visitorWidget = document.createElement('div');
   visitorWidget.id = 'live-visitor-count';
@@ -111,7 +117,11 @@ document.addEventListener('DOMContentLoaded', () => {
     currentVisitors += change;
     if (currentVisitors < 15) currentVisitors = 15;
     if (currentVisitors > 23) currentVisitors = 23;
-    localStorage.setItem('etp_live_visitors', currentVisitors);
+    
+    try {
+      localStorage.setItem('etp_live_visitors', currentVisitors);
+    } catch (e) {}
+    
     visitorWidget.innerHTML = `<span class="live-dot"></span> <b>${currentVisitors}</b> people viewing this page`;
   }, 12000);
 });
